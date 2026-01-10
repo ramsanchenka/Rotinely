@@ -271,13 +271,14 @@
     .hero-visual {
       display: flex;
       justify-content: center;
+      gap: var(--spacing-xl);
       animation: fadeInUp 0.6s ease-out 0.15s both;
     }
 
     .phone-mockup {
       position: relative;
-      width: 280px;
-      height: 580px;
+      width: 260px;
+      height: auto;
       background: linear-gradient(145deg, #3a3a3c 0%, #1c1c1e 100%);
       border-radius: 48px;
       padding: 12px;
@@ -289,25 +290,15 @@
 
     .phone-screen {
       width: 100%;
-      height: 100%;
-      background: var(--background-secondary);
       border-radius: 38px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-tertiary);
-      font-size: 15px;
-      text-align: center;
-      padding: var(--spacing-xxl);
+      display: block;
     }
 
     .phone-screen img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 38px;
+      height: auto;
+      display: block;
     }
 
     .phone-notch {
@@ -699,9 +690,13 @@
         padding-top: 80px;
       }
 
+      .hero-visual {
+        flex-direction: column;
+        gap: var(--spacing-large);
+      }
+
       .phone-mockup {
         width: 240px;
-        height: 500px;
       }
 
       .hero-buttons {
@@ -762,8 +757,13 @@
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <!-- Replace with your app screenshot -->
-            <p>📱<br><br>App screenshot<br>coming soon</p>
+            <img src="assets/sceenshots/routine-list.png" alt="Rotinely routine list">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="assets/sceenshots/routine-active.png" alt="Active routine with timer">
           </div>
         </div>
       </div>
