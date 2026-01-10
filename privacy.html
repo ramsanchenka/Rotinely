@@ -4,375 +4,488 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - Rotinely</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-card: #161618;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1a6;
-      --text-muted: #636366;
-      --accent: #f97316;
-      --accent-secondary: #fb923c;
-      --border: rgba(255, 255, 255, 0.08);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --background-primary: #000000;
+      --background-secondary: #1C1C1E;
+      --background-card: #2C2C2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(235, 235, 245, 0.6);
+      --text-tertiary: rgba(235, 235, 245, 0.3);
+      --accent-blue: #007AFF;
+      --accent-blue-dark: #0051D5;
+      --accent-orange: #FF9500;
+      --success-green: #34C759;
+      --destructive-red: #FF3B30;
+      --spacing-small: 8px;
+      --spacing-medium: 12px;
+      --spacing-regular: 16px;
+      --spacing-large: 20px;
+      --spacing-xl: 24px;
+      --spacing-xxl: 32px;
+      --corner-radius-small: 8px;
+      --corner-radius-medium: 12px;
+      --corner-radius-large: 16px;
+      --max-content-width: 800px;
+      --padding-page: 20px;
+    }
+
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+      background: var(--background-primary);
       color: var(--text-primary);
-      line-height: 1.7;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    nav {
-      padding: 1.25rem 2rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-secondary);
-    }
-
-    .nav-content {
-      max-width: 800px;
+    .container {
+      max-width: var(--max-content-width);
       margin: 0 auto;
+      padding: 0 var(--padding-page);
     }
 
-    .back-link {
-      display: inline-flex;
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 0 60px;
+      background: linear-gradient(180deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+      border-radius: 20px;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: opacity 0.2s ease;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
     }
 
-    .back-link:hover {
-      opacity: 0.8;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
+    header h1 {
+      font-size: 34px;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-small);
     }
 
-    .last-updated {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 3rem;
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: var(--spacing-regular);
+      justify-content: center;
+      padding: var(--spacing-large) 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: var(--spacing-small) var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a.active {
+      color: var(--accent-orange);
+      background: rgba(255, 149, 0, 0.15);
+    }
+
+    /* Content */
+    main {
+      padding-bottom: 60px;
+    }
+
+    .content-section {
+      background: var(--background-card);
+      border-radius: var(--corner-radius-medium);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-regular);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     h2 {
-      font-size: 1.35rem;
+      font-size: 28px;
       font-weight: 600;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: var(--spacing-regular);
       color: var(--text-primary);
     }
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 22px;
       font-weight: 600;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
+      margin-top: var(--spacing-xxl);
+      margin-bottom: var(--spacing-medium);
       color: var(--text-primary);
     }
 
-    p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-small);
+      color: rgba(235, 235, 245, 0.9);
     }
 
-    ul {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
+    p {
+      font-size: 17px;
+      color: rgba(235, 235, 245, 0.8);
+      margin-bottom: var(--spacing-regular);
+      line-height: 1.6;
+    }
+
+    .meta {
+      font-size: 15px;
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    ul, ol {
+      margin-left: var(--spacing-xl);
+      margin-bottom: var(--spacing-regular);
+      color: rgba(235, 235, 245, 0.8);
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-small);
+      line-height: 1.5;
     }
 
     li strong {
       color: var(--text-primary);
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    /* Highlights */
+    .highlight {
+      background: rgba(0, 122, 255, 0.15);
+      border-left: 3px solid var(--accent-blue);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-xl) 0;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .highlight-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-    }
-
-    .highlight-box p {
-      margin-bottom: 0.5rem;
-    }
-
-    .highlight-box p:last-child {
+    .highlight p {
       margin-bottom: 0;
     }
 
-    .placeholder {
-      background: rgba(249, 115, 22, 0.1);
-      border: 1px dashed var(--accent);
-      padding: 0.125rem 0.5rem;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.85em;
+    .highlight p + p {
+      margin-top: var(--spacing-small);
     }
 
-    footer {
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+    .warning {
+      background: rgba(255, 149, 0, 0.15);
+      border-left: 3px solid var(--accent-orange);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-xl) 0;
     }
 
+    .warning p {
+      margin-bottom: 0;
+      color: rgba(255, 214, 153, 0.9);
+    }
+
+    /* Links */
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: var(--accent-blue-dark);
+      text-decoration: underline;
+    }
+
+    /* Table */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1rem 0;
+      margin: var(--spacing-regular) 0;
+      font-size: 15px;
     }
 
     th, td {
       text-align: left;
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
+      padding: var(--spacing-medium);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(235, 235, 245, 0.8);
     }
 
     th {
       color: var(--text-primary);
       font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px var(--padding-page) 40px;
+      color: var(--text-tertiary);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 32px 0 40px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .content-section {
+        padding: var(--spacing-large);
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: var(--spacing-small) var(--spacing-medium);
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="index.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
+  <header>
+    <div class="container">
+      <div class="app-icon">⏱</div>
+      <h1>Rotinely</h1>
+      <p class="subtitle">Build Better Habits, One Routine at a Time</p>
     </div>
+  </header>
+
+  <nav class="container">
+    <a href="index.html">Home</a>
+    <a href="privacy.html" class="active">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="mailto:support@rotinely.app">Support</a>
   </nav>
 
-  <main>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Effective Date: January 4, 2025 · Last Updated: January 4, 2025</p>
+  <main class="container">
+    <div class="content-section">
+      <h2>Privacy Policy</h2>
+      <p class="meta">Effective Date: January 4, 2025 · Last Updated: January 4, 2025</p>
 
-    <h2>1. Introduction</h2>
-    <p>Rotinely ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use our iOS application ("App").</p>
-    <p>By using Rotinely, you agree to the collection and use of information in accordance with this policy.</p>
+      <h3>1. Introduction</h3>
+      <p>Rotinely ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use our iOS application ("App").</p>
+      <p>By using Rotinely, you agree to the collection and use of information in accordance with this policy.</p>
 
-    <h2>2. Information We Collect</h2>
-    
-    <h3>2.1 Information You Provide</h3>
-    <p>When you use Rotinely, you may create:</p>
-    <ul>
-      <li>Routine names, descriptions, and configurations</li>
-      <li>Step titles, durations, and order</li>
-      <li>Routine execution history and completion records</li>
-      <li>Statistics and progress data</li>
-    </ul>
+      <h3>2. Information We Collect</h3>
+      
+      <h4>2.1 Information You Provide</h4>
+      <p>When you use Rotinely, you may create:</p>
+      <ul>
+        <li>Routine names, descriptions, and configurations</li>
+        <li>Step titles, durations, and order</li>
+        <li>Routine execution history and completion records</li>
+        <li>Statistics and progress data</li>
+      </ul>
 
-    <h3>2.2 Automatically Collected Information</h3>
-    <p>We may automatically collect:</p>
-    <ul>
-      <li>Device type, model, and operating system version</li>
-      <li>App version and usage patterns (anonymized)</li>
-      <li>Crash reports and performance data (if you opt in via iOS settings)</li>
-      <li>Purchase and subscription status (anonymized transaction identifiers)</li>
-    </ul>
+      <h4>2.2 Automatically Collected Information</h4>
+      <p>We may automatically collect:</p>
+      <ul>
+        <li>Device type, model, and operating system version</li>
+        <li>App version and usage patterns (anonymized)</li>
+        <li>Crash reports and performance data (if you opt in via iOS settings)</li>
+        <li>Purchase and subscription status (anonymized transaction identifiers)</li>
+      </ul>
 
-    <h3>2.3 Information We Do NOT Collect</h3>
-    <ul>
-      <li>Your name, email, or contact information (unless you contact us)</li>
-      <li>Location data</li>
-      <li>Contacts, photos, or other personal files</li>
-      <li>Health or biometric data</li>
-    </ul>
+      <h4>2.3 Information We Do NOT Collect</h4>
+      <ul>
+        <li>Your name, email, or contact information (unless you contact us)</li>
+        <li>Location data</li>
+        <li>Contacts, photos, or other personal files</li>
+        <li>Health or biometric data</li>
+      </ul>
 
-    <h2>3. How We Store Your Data</h2>
-    <div class="highlight-box">
-      <p><strong>🔒 Privacy by Design: Your data stays on your device.</strong></p>
-      <p>We do not operate servers that store your personal routine data. All information is stored locally on your device or in your private iCloud account.</p>
+      <h3>3. How We Store Your Data</h3>
+      <div class="highlight">
+        <p><strong>🔒 Privacy by Design: Your data stays on your device.</strong></p>
+        <p>We do not operate servers that store your personal routine data. All information is stored locally on your device or in your private iCloud account.</p>
+      </div>
+
+      <table>
+        <tr>
+          <th>Storage Method</th>
+          <th>What's Stored</th>
+          <th>Who Has Access</th>
+        </tr>
+        <tr>
+          <td><strong>Local Device</strong></td>
+          <td>All routine data, history, statistics</td>
+          <td>Only you</td>
+        </tr>
+        <tr>
+          <td><strong>iCloud (if enabled)</strong></td>
+          <td>Synced routine data</td>
+          <td>Only you (encrypted by Apple)</td>
+        </tr>
+        <tr>
+          <td><strong>App Groups</strong></td>
+          <td>Widget display data</td>
+          <td>Only you (local to device)</td>
+        </tr>
+      </table>
+
+      <h3>4. Data Retention</h3>
+      <p>Your routine data is retained on your device for as long as you use the App:</p>
+      <ul>
+        <li><strong>Active Use:</strong> Data persists until you manually delete it or uninstall the App</li>
+        <li><strong>Uninstallation:</strong> All local data is permanently deleted when you uninstall Rotinely</li>
+        <li><strong>iCloud Data:</strong> Remains in your iCloud account until you delete it or disable sync</li>
+        <li><strong>Crash Reports:</strong> Retained by Apple for up to 25 months per their policies</li>
+      </ul>
+
+      <h3>5. How We Use Your Information</h3>
+      <p>We use collected information to:</p>
+      <ul>
+        <li>Provide and maintain the App's core functionality</li>
+        <li>Display your routines in widgets and Live Activities</li>
+        <li>Calculate statistics and track your progress</li>
+        <li>Process subscription purchases (via Apple)</li>
+        <li>Improve App stability and fix bugs (via anonymized crash reports)</li>
+      </ul>
+
+      <h3>6. Data Sharing and Disclosure</h3>
+      <p><strong>We do NOT:</strong></p>
+      <ul>
+        <li>Sell, rent, or trade your personal data</li>
+        <li>Share data with advertisers or ad networks</li>
+        <li>Use third-party analytics that personally identify you</li>
+        <li>Access your routine data—it never leaves your device/iCloud</li>
+      </ul>
+
+      <p><strong>Third-party services that may process data:</strong></p>
+      <ul>
+        <li><strong>Apple Inc.:</strong> iCloud sync, App Store purchases, crash reporting. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a></li>
+      </ul>
+
+      <h3>7. Live Activities & Widgets</h3>
+      <p>When you start a routine, Rotinely uses iOS Live Activities and widgets to display your progress:</p>
+      <ul>
+        <li>This data is processed entirely on your device</li>
+        <li>Managed by iOS system frameworks</li>
+        <li>Automatically removed when the routine ends or you dismiss it</li>
+        <li>Never transmitted to external servers</li>
+      </ul>
+
+      <h3>8. Security Measures</h3>
+      <p>We implement appropriate security measures to protect your data:</p>
+      <ul>
+        <li><strong>Local Encryption:</strong> Data stored using iOS secure storage (SwiftData with device encryption)</li>
+        <li><strong>iCloud Encryption:</strong> All synced data is encrypted in transit and at rest by Apple</li>
+        <li><strong>No Remote Access:</strong> We cannot access your data as it never reaches our servers</li>
+        <li><strong>Secure Coding:</strong> We follow Apple's security best practices and guidelines</li>
+      </ul>
+
+      <h3>9. Your Rights and Choices</h3>
+      
+      <h4>9.1 All Users</h4>
+      <ul>
+        <li><strong>Access:</strong> View all your data directly within the App</li>
+        <li><strong>Correction:</strong> Edit or modify your routines at any time</li>
+        <li><strong>Deletion:</strong> Delete individual routines or uninstall to remove all data</li>
+        <li><strong>Disable Sync:</strong> Turn off iCloud sync in iOS Settings → [Your Name] → iCloud → Rotinely</li>
+        <li><strong>Opt-out of Analytics:</strong> Settings → Privacy & Security → Analytics & Improvements</li>
+      </ul>
+
+      <h4>9.2 European Economic Area (EEA) Residents - GDPR Rights</h4>
+      <p>If you are in the EEA, you have additional rights under the General Data Protection Regulation:</p>
+      <ul>
+        <li><strong>Legal Basis:</strong> We process data based on your consent (by using the App) and legitimate interest (providing the service)</li>
+        <li><strong>Right to Access:</strong> Request a copy of your personal data</li>
+        <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
+        <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+        <li><strong>Right to Portability:</strong> Receive your data in a structured format</li>
+        <li><strong>Right to Object:</strong> Object to certain processing activities</li>
+        <li><strong>Right to Complain:</strong> Lodge a complaint with your local data protection authority</li>
+      </ul>
+      <p>Since all data is stored locally on your device, you can exercise most rights directly. For assistance, contact us at the email below.</p>
+
+      <h4>9.3 California Residents - CCPA Rights</h4>
+      <p>If you are a California resident, the California Consumer Privacy Act (CCPA) provides you with specific rights:</p>
+      <ul>
+        <li><strong>Right to Know:</strong> What personal information we collect, use, and disclose</li>
+        <li><strong>Right to Delete:</strong> Request deletion of personal information</li>
+        <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your rights</li>
+        <li><strong>Do Not Sell:</strong> We do NOT sell your personal information to third parties</li>
+      </ul>
+      <p>To exercise your rights, contact us at the email address below.</p>
+
+      <h3>10. In-App Purchases & Subscriptions</h3>
+      <p>If you purchase a subscription:</p>
+      <ul>
+        <li>All payments are processed securely by Apple through the App Store</li>
+        <li>We receive anonymized transaction data (purchase date, product ID, subscription status)</li>
+        <li>We do NOT receive your payment information, Apple ID, or billing details</li>
+        <li>Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Terms</a> govern payment processing</li>
+        <li>Your routine data remains on your device regardless of subscription status</li>
+      </ul>
+
+      <h3>11. Children's Privacy</h3>
+      <p>Rotinely is not directed to children under 13 (or 16 in the EEA). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately, and we will take steps to delete such information.</p>
+
+      <h3>12. International Data Transfers</h3>
+      <p>Since your data is stored locally on your device and in your personal iCloud account, there are no international data transfers by us. Apple may transfer iCloud data internationally according to their privacy policy and applicable data protection agreements.</p>
+
+      <h3>13. Changes to This Policy</h3>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by:</p>
+      <ul>
+        <li>Updating the "Last Updated" date at the top of this page</li>
+        <li>Including notice in App Store update notes for material changes</li>
+        <li>Displaying an in-app notification for significant changes (where feasible)</li>
+      </ul>
+      <p>Your continued use of Rotinely after changes constitutes acceptance of the updated policy.</p>
+
+      <h3>14. Contact Us</h3>
+      <p>If you have questions about this Privacy Policy, your data, or wish to exercise your rights, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:support@rotinely.app">support@rotinely.app</a></p>
+      <p>We aim to respond to all requests within 30 days.</p>
     </div>
-
-    <table>
-      <tr>
-        <th>Storage Method</th>
-        <th>What's Stored</th>
-        <th>Who Has Access</th>
-      </tr>
-      <tr>
-        <td><strong>Local Device</strong></td>
-        <td>All routine data, history, statistics</td>
-        <td>Only you</td>
-      </tr>
-      <tr>
-        <td><strong>iCloud (if enabled)</strong></td>
-        <td>Synced routine data</td>
-        <td>Only you (encrypted by Apple)</td>
-      </tr>
-      <tr>
-        <td><strong>App Groups</strong></td>
-        <td>Widget display data</td>
-        <td>Only you (local to device)</td>
-      </tr>
-    </table>
-
-    <h2>4. Data Retention</h2>
-    <p>Your routine data is retained on your device for as long as you use the App:</p>
-    <ul>
-      <li><strong>Active Use:</strong> Data persists until you manually delete it or uninstall the App</li>
-      <li><strong>Uninstallation:</strong> All local data is permanently deleted when you uninstall Rotinely</li>
-      <li><strong>iCloud Data:</strong> Remains in your iCloud account until you delete it or disable sync</li>
-      <li><strong>Crash Reports:</strong> Retained by Apple for up to 25 months per their policies</li>
-    </ul>
-
-    <h2>5. How We Use Your Information</h2>
-    <p>We use collected information to:</p>
-    <ul>
-      <li>Provide and maintain the App's core functionality</li>
-      <li>Display your routines in widgets and Live Activities</li>
-      <li>Calculate statistics and track your progress</li>
-      <li>Process subscription purchases (via Apple)</li>
-      <li>Improve App stability and fix bugs (via anonymized crash reports)</li>
-    </ul>
-
-    <h2>6. Data Sharing and Disclosure</h2>
-    <p><strong>We do NOT:</strong></p>
-    <ul>
-      <li>Sell, rent, or trade your personal data</li>
-      <li>Share data with advertisers or ad networks</li>
-      <li>Use third-party analytics that personally identify you</li>
-      <li>Access your routine data—it never leaves your device/iCloud</li>
-    </ul>
-
-    <p><strong>Third-party services that may process data:</strong></p>
-    <ul>
-      <li><strong>Apple Inc.:</strong> iCloud sync, App Store purchases, crash reporting. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a></li>
-      <!-- Uncomment and add if using RevenueCat:
-      <li><strong>RevenueCat:</strong> Subscription management. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a></li>
-      -->
-    </ul>
-
-    <h2>7. Live Activities & Widgets</h2>
-    <p>When you start a routine, Rotinely uses iOS Live Activities and widgets to display your progress:</p>
-    <ul>
-      <li>This data is processed entirely on your device</li>
-      <li>Managed by iOS system frameworks</li>
-      <li>Automatically removed when the routine ends or you dismiss it</li>
-      <li>Never transmitted to external servers</li>
-    </ul>
-
-    <h2>8. Security Measures</h2>
-    <p>We implement appropriate security measures to protect your data:</p>
-    <ul>
-      <li><strong>Local Encryption:</strong> Data stored using iOS secure storage (SwiftData with device encryption)</li>
-      <li><strong>iCloud Encryption:</strong> All synced data is encrypted in transit and at rest by Apple</li>
-      <li><strong>No Remote Access:</strong> We cannot access your data as it never reaches our servers</li>
-      <li><strong>Secure Coding:</strong> We follow Apple's security best practices and guidelines</li>
-    </ul>
-
-    <h2>9. Your Rights and Choices</h2>
-    
-    <h3>9.1 All Users</h3>
-    <ul>
-      <li><strong>Access:</strong> View all your data directly within the App</li>
-      <li><strong>Correction:</strong> Edit or modify your routines at any time</li>
-      <li><strong>Deletion:</strong> Delete individual routines or uninstall to remove all data</li>
-      <li><strong>Disable Sync:</strong> Turn off iCloud sync in iOS Settings → [Your Name] → iCloud → Rotinely</li>
-      <li><strong>Opt-out of Analytics:</strong> Settings → Privacy & Security → Analytics & Improvements</li>
-    </ul>
-
-    <h3>9.2 European Economic Area (EEA) Residents - GDPR Rights</h3>
-    <p>If you are in the EEA, you have additional rights under the General Data Protection Regulation:</p>
-    <ul>
-      <li><strong>Legal Basis:</strong> We process data based on your consent (by using the App) and legitimate interest (providing the service)</li>
-      <li><strong>Right to Access:</strong> Request a copy of your personal data</li>
-      <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
-      <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
-      <li><strong>Right to Portability:</strong> Receive your data in a structured format</li>
-      <li><strong>Right to Object:</strong> Object to certain processing activities</li>
-      <li><strong>Right to Complain:</strong> Lodge a complaint with your local data protection authority</li>
-    </ul>
-    <p>Since all data is stored locally on your device, you can exercise most rights directly. For assistance, contact us at the email below.</p>
-
-    <h3>9.3 California Residents - CCPA Rights</h3>
-    <p>If you are a California resident, the California Consumer Privacy Act (CCPA) provides you with specific rights:</p>
-    <ul>
-      <li><strong>Right to Know:</strong> What personal information we collect, use, and disclose</li>
-      <li><strong>Right to Delete:</strong> Request deletion of personal information</li>
-      <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your rights</li>
-      <li><strong>Do Not Sell:</strong> We do NOT sell your personal information to third parties</li>
-    </ul>
-    <p>To exercise your rights, contact us at the email address below.</p>
-
-    <h2>10. In-App Purchases & Subscriptions</h2>
-    <p>If you purchase a subscription:</p>
-    <ul>
-      <li>All payments are processed securely by Apple through the App Store</li>
-      <li>We receive anonymized transaction data (purchase date, product ID, subscription status)</li>
-      <li>We do NOT receive your payment information, Apple ID, or billing details</li>
-      <li>Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Terms</a> govern payment processing</li>
-      <li>Your routine data remains on your device regardless of subscription status</li>
-    </ul>
-
-    <h2>11. Children's Privacy</h2>
-    <p>Rotinely is not directed to children under 13 (or 16 in the EEA). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately, and we will take steps to delete such information.</p>
-
-    <h2>12. International Data Transfers</h2>
-    <p>Since your data is stored locally on your device and in your personal iCloud account, there are no international data transfers by us. Apple may transfer iCloud data internationally according to their privacy policy and applicable data protection agreements.</p>
-
-    <h2>13. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by:</p>
-    <ul>
-      <li>Updating the "Last Updated" date at the top of this page</li>
-      <li>Including notice in App Store update notes for material changes</li>
-      <li>Displaying an in-app notification for significant changes (where feasible)</li>
-    </ul>
-    <p>Your continued use of Rotinely after changes constitutes acceptance of the updated policy.</p>
-
-    <h2>14. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, your data, or wish to exercise your rights, please contact us:</p>
-    <p><strong>Email:</strong> <a href="mailto:support@rotinely.app"><span class="placeholder">support@rotinely.app</span></a></p>
-    <p>We aim to respond to all requests within 30 days.</p>
   </main>
 
   <footer>
-    © 2025 Rotinely. All rights reserved.
+    <div class="container">
+      <p>© 2025 Rotinely. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>

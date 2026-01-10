@@ -4,400 +4,513 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service - Rotinely</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-card: #161618;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1a6;
-      --text-muted: #636366;
-      --accent: #f97316;
-      --accent-secondary: #fb923c;
-      --border: rgba(255, 255, 255, 0.08);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --background-primary: #000000;
+      --background-secondary: #1C1C1E;
+      --background-card: #2C2C2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(235, 235, 245, 0.6);
+      --text-tertiary: rgba(235, 235, 245, 0.3);
+      --accent-blue: #007AFF;
+      --accent-blue-dark: #0051D5;
+      --accent-orange: #FF9500;
+      --success-green: #34C759;
+      --destructive-red: #FF3B30;
+      --spacing-small: 8px;
+      --spacing-medium: 12px;
+      --spacing-regular: 16px;
+      --spacing-large: 20px;
+      --spacing-xl: 24px;
+      --spacing-xxl: 32px;
+      --corner-radius-small: 8px;
+      --corner-radius-medium: 12px;
+      --corner-radius-large: 16px;
+      --max-content-width: 800px;
+      --padding-page: 20px;
+    }
+
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+      background: var(--background-primary);
       color: var(--text-primary);
-      line-height: 1.7;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    nav {
-      padding: 1.25rem 2rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-secondary);
-    }
-
-    .nav-content {
-      max-width: 800px;
+    .container {
+      max-width: var(--max-content-width);
       margin: 0 auto;
+      padding: 0 var(--padding-page);
     }
 
-    .back-link {
-      display: inline-flex;
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 0 60px;
+      background: linear-gradient(180deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+      border-radius: 20px;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: opacity 0.2s ease;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
     }
 
-    .back-link:hover {
-      opacity: 0.8;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
+    header h1 {
+      font-size: 34px;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-small);
     }
 
-    .last-updated {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 3rem;
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: var(--spacing-regular);
+      justify-content: center;
+      padding: var(--spacing-large) 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: var(--spacing-small) var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a.active {
+      color: var(--accent-orange);
+      background: rgba(255, 149, 0, 0.15);
+    }
+
+    /* Content */
+    main {
+      padding-bottom: 60px;
+    }
+
+    .content-section {
+      background: var(--background-card);
+      border-radius: var(--corner-radius-medium);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-regular);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     h2 {
-      font-size: 1.35rem;
+      font-size: 28px;
       font-weight: 600;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: var(--spacing-regular);
       color: var(--text-primary);
     }
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 22px;
       font-weight: 600;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
+      margin-top: var(--spacing-xxl);
+      margin-bottom: var(--spacing-medium);
       color: var(--text-primary);
     }
 
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-small);
+      color: rgba(235, 235, 245, 0.9);
+    }
+
     p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
+      font-size: 17px;
+      color: rgba(235, 235, 245, 0.8);
+      margin-bottom: var(--spacing-regular);
+      line-height: 1.6;
+    }
+
+    .meta {
+      font-size: 15px;
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-xl);
     }
 
     ul, ol {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
+      margin-left: var(--spacing-xl);
+      margin-bottom: var(--spacing-regular);
+      color: rgba(235, 235, 245, 0.8);
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-small);
+      line-height: 1.5;
     }
 
     li strong {
       color: var(--text-primary);
     }
 
+    /* Highlights */
+    .highlight {
+      background: rgba(0, 122, 255, 0.15);
+      border-left: 3px solid var(--accent-blue);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+    }
+
+    .highlight p + p {
+      margin-top: var(--spacing-small);
+    }
+
+    .warning {
+      background: rgba(255, 59, 48, 0.15);
+      border-left: 3px solid var(--destructive-red);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .warning p {
+      margin-bottom: 0;
+      color: rgba(255, 150, 150, 0.9);
+    }
+
+    .notice {
+      background: rgba(255, 149, 0, 0.15);
+      border-left: 3px solid var(--accent-orange);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .notice p {
+      margin-bottom: 0;
+      color: rgba(255, 214, 153, 0.9);
+    }
+
+    /* Links */
     a {
-      color: var(--accent);
+      color: var(--accent-blue);
       text-decoration: none;
+      font-weight: 500;
     }
 
     a:hover {
+      color: var(--accent-blue-dark);
       text-decoration: underline;
     }
 
-    .highlight-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-    }
-
-    .highlight-box p {
-      margin-bottom: 0.5rem;
-    }
-
-    .highlight-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .warning-box {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-    }
-
-    .warning-box p {
-      color: #fca5a5;
-      margin-bottom: 0;
-    }
-
-    .placeholder {
-      background: rgba(249, 115, 22, 0.1);
-      border: 1px dashed var(--accent);
-      padding: 0.125rem 0.5rem;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.85em;
-    }
-
+    /* Footer */
     footer {
-      padding: 2rem;
-      border-top: 1px solid var(--border);
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      padding: 60px var(--padding-page) 40px;
+      color: var(--text-tertiary);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 32px 0 40px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .content-section {
+        padding: var(--spacing-large);
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: var(--spacing-small) var(--spacing-medium);
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="index.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
+  <header>
+    <div class="container">
+      <div class="app-icon">⏱</div>
+      <h1>Rotinely</h1>
+      <p class="subtitle">Build Better Habits, One Routine at a Time</p>
     </div>
+  </header>
+
+  <nav class="container">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html" class="active">Terms of Service</a>
+    <a href="mailto:support@rotinely.app">Support</a>
   </nav>
 
-  <main>
-    <h1>Terms of Service</h1>
-    <p class="last-updated">Effective Date: January 4, 2025 · Last Updated: January 4, 2025</p>
+  <main class="container">
+    <div class="content-section">
+      <h2>Terms of Service</h2>
+      <p class="meta">Effective Date: January 4, 2025 · Last Updated: January 4, 2025</p>
 
-    <div class="highlight-box">
-      <p><strong>Please read these Terms carefully.</strong> By downloading, installing, or using Rotinely, you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+      <div class="highlight">
+        <p><strong>Please read these Terms carefully.</strong> By downloading, installing, or using Rotinely, you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+      </div>
+
+      <h3>1. Acceptance of Terms</h3>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Rotinely ("we," "us," or "our") governing your use of the Rotinely mobile application ("App").</p>
+      <p>By accessing or using the App, you confirm that you:</p>
+      <ul>
+        <li>Are at least 13 years old (or 16 in the EEA)</li>
+        <li>Have the legal capacity to enter into this agreement</li>
+        <li>Agree to comply with these Terms and all applicable laws</li>
+      </ul>
+
+      <h3>2. License Grant</h3>
+      <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+      <ul>
+        <li>Download and install the App on devices you own or control</li>
+        <li>Use the App for personal, non-commercial purposes</li>
+      </ul>
+      <p>This license does not include the right to:</p>
+      <ul>
+        <li>Modify, adapt, or create derivative works of the App</li>
+        <li>Reverse engineer, decompile, or disassemble the App</li>
+        <li>Sublicense, sell, rent, or lease the App to third parties</li>
+        <li>Use the App for any commercial purpose without our written consent</li>
+      </ul>
+
+      <h3>3. Subscriptions and Payments</h3>
+      
+      <h4>3.1 Subscription Terms</h4>
+      <p>Rotinely may offer subscription-based premium features. By purchasing a subscription, you agree that:</p>
+      <ul>
+        <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period</li>
+        <li>Payment is charged to your Apple ID account upon confirmation of purchase</li>
+        <li>Renewal is charged within 24 hours before the end of the current period at the same price</li>
+        <li>You can manage and cancel subscriptions in your App Store account settings</li>
+      </ul>
+
+      <h4>3.2 Free Trials</h4>
+      <p>If a free trial is offered:</p>
+      <ul>
+        <li>The trial period will be specified at the time of signup</li>
+        <li>The trial automatically converts to a paid subscription unless cancelled before it ends</li>
+        <li>Any unused portion of a free trial is forfeited upon purchasing a subscription</li>
+        <li>One free trial per Apple ID</li>
+      </ul>
+
+      <h4>3.3 Pricing Changes</h4>
+      <p>We may change subscription prices at any time. Price changes will take effect at the start of the next subscription period following notice to you. Your continued use after the price change constitutes acceptance of the new price.</p>
+
+      <h4>3.4 Refunds</h4>
+      <ul>
+        <li>All purchases are processed by Apple and subject to <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">Apple's refund policy</a></li>
+        <li>We do not provide refunds for partial subscription periods</li>
+        <li>To request a refund, contact Apple Support or use the "Report a Problem" feature in the App Store</li>
+      </ul>
+
+      <h3>4. User Conduct</h3>
+      <p>You agree NOT to:</p>
+      <ul>
+        <li>Violate any applicable laws, regulations, or third-party rights</li>
+        <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App</li>
+        <li>Circumvent, disable, or interfere with security features of the App</li>
+        <li>Use the App for any illegal, harmful, or unauthorized purpose</li>
+        <li>Share, transfer, or resell your subscription or account access</li>
+        <li>Introduce malware, viruses, or other harmful code</li>
+        <li>Interfere with or disrupt the App's operation or servers</li>
+        <li>Use automated systems (bots, scrapers) to access the App</li>
+      </ul>
+
+      <h3>5. Your Content and Data</h3>
+      <h4>5.1 Ownership</h4>
+      <p>You retain all ownership rights to the routines, data, and content you create within the App ("Your Content"). We do not claim any ownership over Your Content.</p>
+
+      <h4>5.2 Data Storage</h4>
+      <p>Your Content is stored locally on your device and, if enabled, synced via your personal iCloud account. We do not have access to Your Content. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+      <h4>5.3 Data Loss</h4>
+      <p>While we design the App to safely store your data, we are not responsible for data loss due to device failure, iOS updates, uninstallation, or other circumstances beyond our control. We recommend enabling iCloud sync for backup purposes.</p>
+
+      <h3>6. Intellectual Property</h3>
+      <h4>6.1 Our Property</h4>
+      <p>The App, including its design, features, functionality, code, graphics, logos, and all other elements (excluding Your Content), are owned by us and protected by copyright, trademark, and other intellectual property laws.</p>
+
+      <h4>6.2 Trademarks</h4>
+      <p>"Rotinely" and associated logos are our trademarks. You may not use our trademarks without prior written permission.</p>
+
+      <h4>6.3 Feedback</h4>
+      <p>If you provide feedback, suggestions, or ideas about the App, you grant us a perpetual, irrevocable, royalty-free license to use, modify, and incorporate such feedback without any obligation to you.</p>
+
+      <h3>7. Disclaimers</h3>
+      <div class="warning">
+        <p><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.</strong></p>
+      </div>
+      <p>To the maximum extent permitted by law, we disclaim all warranties, including but not limited to:</p>
+      <ul>
+        <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+        <li>Warranties that the App will be uninterrupted, error-free, or secure</li>
+        <li>Warranties regarding the accuracy or reliability of any information obtained through the App</li>
+      </ul>
+      <p><strong>Important:</strong> Routines created in the App are for personal organization and informational purposes only. They are not a substitute for professional medical, health, fitness, or other expert advice. Always consult appropriate professionals for such guidance.</p>
+
+      <h3>8. Limitation of Liability</h3>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
+      <ul>
+        <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
+        <li>We shall not be liable for any loss of data, profits, goodwill, or other intangible losses</li>
+        <li>Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim, or $50 USD, whichever is greater</li>
+      </ul>
+      <p>Some jurisdictions do not allow limitation of liability for certain damages. In such jurisdictions, our liability is limited to the maximum extent permitted by law.</p>
+
+      <h3>9. Indemnification</h3>
+      <p>You agree to indemnify, defend, and hold harmless Rotinely and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:</p>
+      <ul>
+        <li>Your use or misuse of the App</li>
+        <li>Your violation of these Terms</li>
+        <li>Your violation of any third-party rights</li>
+        <li>Your violation of any applicable laws or regulations</li>
+      </ul>
+
+      <h3>10. Dispute Resolution</h3>
+      <h4>10.1 Informal Resolution</h4>
+      <p>Before filing any formal dispute, you agree to first contact us at the email below and attempt to resolve the dispute informally for at least 30 days.</p>
+
+      <h4>10.2 Binding Arbitration</h4>
+      <p>If informal resolution fails, any dispute arising from these Terms or your use of the App shall be resolved by binding arbitration, rather than in court, except that you may assert claims in small claims court if your claims qualify.</p>
+      <ul>
+        <li>Arbitration shall be conducted in accordance with the rules of the American Arbitration Association (AAA) or equivalent arbitration body in your jurisdiction</li>
+        <li>Arbitration shall be conducted in English</li>
+        <li>The arbitrator's decision shall be final and binding</li>
+        <li>Judgment on the arbitration award may be entered in any court with jurisdiction</li>
+      </ul>
+
+      <h4>10.3 Class Action Waiver</h4>
+      <div class="notice">
+        <p><strong>YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.</strong></p>
+        <p>You waive your right to participate in a class action lawsuit or class-wide arbitration against us.</p>
+      </div>
+
+      <h4>10.4 Exceptions</h4>
+      <p>Either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights.</p>
+
+      <h3>11. Governing Law</h3>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
+      <p>For EU residents: Nothing in these Terms affects your rights under mandatory consumer protection laws in your country of residence.</p>
+
+      <h3>12. Changes to Terms</h3>
+      <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by:</p>
+      <ul>
+        <li>Updating the "Last Updated" date at the top of this page</li>
+        <li>Providing notice through the App or App Store update notes</li>
+      </ul>
+      <p>Your continued use of the App after changes become effective constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the App.</p>
+
+      <h3>13. Termination</h3>
+      <h4>13.1 By You</h4>
+      <p>You may terminate these Terms at any time by uninstalling the App and discontinuing use. Active subscriptions must be cancelled through your App Store account settings.</p>
+
+      <h4>13.2 By Us</h4>
+      <p>We may suspend or terminate your access to the App immediately, without prior notice, if you:</p>
+      <ul>
+        <li>Violate these Terms</li>
+        <li>Engage in fraudulent or illegal activity</li>
+        <li>Engage in conduct that may harm us, other users, or third parties</li>
+      </ul>
+
+      <h4>13.3 Effect of Termination</h4>
+      <p>Upon termination:</p>
+      <ul>
+        <li>Your license to use the App is immediately revoked</li>
+        <li>You must delete the App from all devices</li>
+        <li>Sections that by their nature should survive (including Disclaimers, Limitation of Liability, Indemnification, Dispute Resolution, and Governing Law) shall survive termination</li>
+      </ul>
+
+      <h3>14. Apple App Store Terms</h3>
+      <p>The following additional terms apply to your use of the App downloaded from the Apple App Store:</p>
+      <ul>
+        <li>These Terms are between you and Rotinely only, not with Apple Inc. ("Apple")</li>
+        <li>Apple has no obligation to provide maintenance, support, or warranty for the App</li>
+        <li>Apple is not responsible for addressing any claims related to the App or your use of it</li>
+        <li>Apple is not responsible for any third-party claims that the App infringes intellectual property rights</li>
+        <li><strong>Apple and its subsidiaries are third-party beneficiaries of these Terms</strong> and may enforce these Terms against you</li>
+        <li>You must comply with the App Store Terms of Service</li>
+        <li>You represent that you are not located in a country subject to a U.S. Government embargo or designated as a "terrorist supporting" country, and you are not on any U.S. Government prohibited or restricted party list</li>
+      </ul>
+
+      <h3>15. Force Majeure</h3>
+      <p>We shall not be liable for any failure or delay in performing our obligations where such failure or delay results from circumstances beyond our reasonable control, including but not limited to: natural disasters, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation, facilities, fuel, energy, labor, or materials.</p>
+
+      <h3>16. General Provisions</h3>
+      <h4>16.1 Entire Agreement</h4>
+      <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the App and supersede all prior agreements and understandings.</p>
+
+      <h4>16.2 Severability</h4>
+      <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+      <h4>16.3 Waiver</h4>
+      <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver must be in writing and signed by us.</p>
+
+      <h4>16.4 Assignment</h4>
+      <p>You may not assign or transfer these Terms or your rights hereunder without our prior written consent. We may assign our rights and obligations under these Terms without restriction.</p>
+
+      <h4>16.5 No Third-Party Beneficiaries</h4>
+      <p>Except for Apple as stated in Section 14, these Terms do not create any third-party beneficiary rights.</p>
+
+      <h3>17. Contact Us</h3>
+      <p>If you have questions about these Terms, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:support@rotinely.app">support@rotinely.app</a></p>
     </div>
-
-    <h2>1. Acceptance of Terms</h2>
-    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Rotinely ("we," "us," or "our") governing your use of the Rotinely mobile application ("App").</p>
-    <p>By accessing or using the App, you confirm that you:</p>
-    <ul>
-      <li>Are at least 13 years old (or 16 in the EEA)</li>
-      <li>Have the legal capacity to enter into this agreement</li>
-      <li>Agree to comply with these Terms and all applicable laws</li>
-    </ul>
-
-    <h2>2. License Grant</h2>
-    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
-    <ul>
-      <li>Download and install the App on devices you own or control</li>
-      <li>Use the App for personal, non-commercial purposes</li>
-    </ul>
-    <p>This license does not include the right to:</p>
-    <ul>
-      <li>Modify, adapt, or create derivative works of the App</li>
-      <li>Reverse engineer, decompile, or disassemble the App</li>
-      <li>Sublicense, sell, rent, or lease the App to third parties</li>
-      <li>Use the App for any commercial purpose without our written consent</li>
-    </ul>
-
-    <h2>3. Subscriptions and Payments</h2>
-    
-    <h3>3.1 Subscription Terms</h3>
-    <p>Rotinely may offer subscription-based premium features. By purchasing a subscription, you agree that:</p>
-    <ul>
-      <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period</li>
-      <li>Payment is charged to your Apple ID account upon confirmation of purchase</li>
-      <li>Renewal is charged within 24 hours before the end of the current period at the same price</li>
-      <li>You can manage and cancel subscriptions in your App Store account settings</li>
-    </ul>
-
-    <h3>3.2 Free Trials</h3>
-    <p>If a free trial is offered:</p>
-    <ul>
-      <li>The trial period will be specified at the time of signup</li>
-      <li>The trial automatically converts to a paid subscription unless cancelled before it ends</li>
-      <li>Any unused portion of a free trial is forfeited upon purchasing a subscription</li>
-      <li>One free trial per Apple ID</li>
-    </ul>
-
-    <h3>3.3 Pricing Changes</h3>
-    <p>We may change subscription prices at any time. Price changes will take effect at the start of the next subscription period following notice to you. Your continued use after the price change constitutes acceptance of the new price.</p>
-
-    <h3>3.4 Refunds</h3>
-    <ul>
-      <li>All purchases are processed by Apple and subject to <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">Apple's refund policy</a></li>
-      <li>We do not provide refunds for partial subscription periods</li>
-      <li>To request a refund, contact Apple Support or use the "Report a Problem" feature in the App Store</li>
-    </ul>
-
-    <h2>4. User Conduct</h2>
-    <p>You agree NOT to:</p>
-    <ul>
-      <li>Violate any applicable laws, regulations, or third-party rights</li>
-      <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App</li>
-      <li>Circumvent, disable, or interfere with security features of the App</li>
-      <li>Use the App for any illegal, harmful, or unauthorized purpose</li>
-      <li>Share, transfer, or resell your subscription or account access</li>
-      <li>Introduce malware, viruses, or other harmful code</li>
-      <li>Interfere with or disrupt the App's operation or servers</li>
-      <li>Use automated systems (bots, scrapers) to access the App</li>
-    </ul>
-
-    <h2>5. Your Content and Data</h2>
-    <h3>5.1 Ownership</h3>
-    <p>You retain all ownership rights to the routines, data, and content you create within the App ("Your Content"). We do not claim any ownership over Your Content.</p>
-
-    <h3>5.2 Data Storage</h3>
-    <p>Your Content is stored locally on your device and, if enabled, synced via your personal iCloud account. We do not have access to Your Content. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
-
-    <h3>5.3 Data Loss</h3>
-    <p>While we design the App to safely store your data, we are not responsible for data loss due to device failure, iOS updates, uninstallation, or other circumstances beyond our control. We recommend enabling iCloud sync for backup purposes.</p>
-
-    <h2>6. Intellectual Property</h2>
-    <h3>6.1 Our Property</h3>
-    <p>The App, including its design, features, functionality, code, graphics, logos, and all other elements (excluding Your Content), are owned by us and protected by copyright, trademark, and other intellectual property laws.</p>
-
-    <h3>6.2 Trademarks</h3>
-    <p>"Rotinely" and associated logos are our trademarks. You may not use our trademarks without prior written permission.</p>
-
-    <h3>6.3 Feedback</h3>
-    <p>If you provide feedback, suggestions, or ideas about the App, you grant us a perpetual, irrevocable, royalty-free license to use, modify, and incorporate such feedback without any obligation to you.</p>
-
-    <h2>7. Disclaimers</h2>
-    <div class="warning-box">
-      <p><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.</strong></p>
-    </div>
-    <p>To the maximum extent permitted by law, we disclaim all warranties, including but not limited to:</p>
-    <ul>
-      <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
-      <li>Warranties that the App will be uninterrupted, error-free, or secure</li>
-      <li>Warranties regarding the accuracy or reliability of any information obtained through the App</li>
-    </ul>
-    <p><strong>Important:</strong> Routines created in the App are for personal organization and informational purposes only. They are not a substitute for professional medical, health, fitness, or other expert advice. Always consult appropriate professionals for such guidance.</p>
-
-    <h2>8. Limitation of Liability</h2>
-    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
-    <ul>
-      <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
-      <li>We shall not be liable for any loss of data, profits, goodwill, or other intangible losses</li>
-      <li>Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim, or $50 USD, whichever is greater</li>
-    </ul>
-    <p>Some jurisdictions do not allow limitation of liability for certain damages. In such jurisdictions, our liability is limited to the maximum extent permitted by law.</p>
-
-    <h2>9. Indemnification</h2>
-    <p>You agree to indemnify, defend, and hold harmless Rotinely and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:</p>
-    <ul>
-      <li>Your use or misuse of the App</li>
-      <li>Your violation of these Terms</li>
-      <li>Your violation of any third-party rights</li>
-      <li>Your violation of any applicable laws or regulations</li>
-    </ul>
-
-    <h2>10. Dispute Resolution</h2>
-    <h3>10.1 Informal Resolution</h3>
-    <p>Before filing any formal dispute, you agree to first contact us at the email below and attempt to resolve the dispute informally for at least 30 days.</p>
-
-    <h3>10.2 Binding Arbitration</h3>
-    <p>If informal resolution fails, any dispute arising from these Terms or your use of the App shall be resolved by binding arbitration, rather than in court, except that you may assert claims in small claims court if your claims qualify.</p>
-    <ul>
-      <li>Arbitration shall be conducted in accordance with the rules of the American Arbitration Association (AAA) or equivalent arbitration body in your jurisdiction</li>
-      <li>Arbitration shall be conducted in English</li>
-      <li>The arbitrator's decision shall be final and binding</li>
-      <li>Judgment on the arbitration award may be entered in any court with jurisdiction</li>
-    </ul>
-
-    <h3>10.3 Class Action Waiver</h3>
-    <div class="highlight-box">
-      <p><strong>YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.</strong></p>
-      <p>You waive your right to participate in a class action lawsuit or class-wide arbitration against us.</p>
-    </div>
-
-    <h3>10.4 Exceptions</h3>
-    <p>Either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights.</p>
-
-    <h2>11. Governing Law</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of <span class="placeholder">United States / Your State</span>, without regard to its conflict of law provisions.</p>
-    <p>For EU residents: Nothing in these Terms affects your rights under mandatory consumer protection laws in your country of residence.</p>
-
-    <h2>12. Changes to Terms</h2>
-    <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by:</p>
-    <ul>
-      <li>Updating the "Last Updated" date at the top of this page</li>
-      <li>Providing notice through the App or App Store update notes</li>
-    </ul>
-    <p>Your continued use of the App after changes become effective constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the App.</p>
-
-    <h2>13. Termination</h2>
-    <h3>13.1 By You</h3>
-    <p>You may terminate these Terms at any time by uninstalling the App and discontinuing use. Active subscriptions must be cancelled through your App Store account settings.</p>
-
-    <h3>13.2 By Us</h3>
-    <p>We may suspend or terminate your access to the App immediately, without prior notice, if you:</p>
-    <ul>
-      <li>Violate these Terms</li>
-      <li>Engage in fraudulent or illegal activity</li>
-      <li>Engage in conduct that may harm us, other users, or third parties</li>
-    </ul>
-
-    <h3>13.3 Effect of Termination</h3>
-    <p>Upon termination:</p>
-    <ul>
-      <li>Your license to use the App is immediately revoked</li>
-      <li>You must delete the App from all devices</li>
-      <li>Sections that by their nature should survive (including Disclaimers, Limitation of Liability, Indemnification, Dispute Resolution, and Governing Law) shall survive termination</li>
-    </ul>
-
-    <h2>14. Apple App Store Terms</h2>
-    <p>The following additional terms apply to your use of the App downloaded from the Apple App Store:</p>
-    <ul>
-      <li>These Terms are between you and Rotinely only, not with Apple Inc. ("Apple")</li>
-      <li>Apple has no obligation to provide maintenance, support, or warranty for the App</li>
-      <li>Apple is not responsible for addressing any claims related to the App or your use of it</li>
-      <li>Apple is not responsible for any third-party claims that the App infringes intellectual property rights</li>
-      <li><strong>Apple and its subsidiaries are third-party beneficiaries of these Terms</strong> and may enforce these Terms against you</li>
-      <li>You must comply with the App Store Terms of Service</li>
-      <li>You represent that you are not located in a country subject to a U.S. Government embargo or designated as a "terrorist supporting" country, and you are not on any U.S. Government prohibited or restricted party list</li>
-    </ul>
-
-    <h2>15. Force Majeure</h2>
-    <p>We shall not be liable for any failure or delay in performing our obligations where such failure or delay results from circumstances beyond our reasonable control, including but not limited to: natural disasters, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation, facilities, fuel, energy, labor, or materials.</p>
-
-    <h2>16. General Provisions</h2>
-    <h3>16.1 Entire Agreement</h3>
-    <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the App and supersede all prior agreements and understandings.</p>
-
-    <h3>16.2 Severability</h3>
-    <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
-
-    <h3>16.3 Waiver</h3>
-    <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver must be in writing and signed by us.</p>
-
-    <h3>16.4 Assignment</h3>
-    <p>You may not assign or transfer these Terms or your rights hereunder without our prior written consent. We may assign our rights and obligations under these Terms without restriction.</p>
-
-    <h3>16.5 No Third-Party Beneficiaries</h3>
-    <p>Except for Apple as stated in Section 14, these Terms do not create any third-party beneficiary rights.</p>
-
-    <h2>17. Contact Us</h2>
-    <p>If you have questions about these Terms, please contact us:</p>
-    <p><strong>Email:</strong> <a href="mailto:support@rotinely.app"><span class="placeholder">support@rotinely.app</span></a></p>
   </main>
 
   <footer>
-    © 2025 Rotinely. All rights reserved.
+    <div class="container">
+      <p>© 2025 Rotinely. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>

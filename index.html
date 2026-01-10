@@ -5,76 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rotinely - Build Better Routines</title>
   <meta name="description" content="Create and execute daily routines with step-by-step guidance and live countdown timers. Available on iOS.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-card: #161618;
-      --text-primary: #fafafa;
-      --text-secondary: #a1a1a6;
-      --text-muted: #636366;
-      --accent: #f97316;
-      --accent-glow: rgba(249, 115, 22, 0.4);
-      --accent-secondary: #fb923c;
-      --border: rgba(255, 255, 255, 0.08);
-      --gradient-1: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-      --gradient-2: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.05) 100%);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    :root {
+      /* Colors */
+      --background-primary: #000000;
+      --background-secondary: #1C1C1E;
+      --background-card: #2C2C2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(235, 235, 245, 0.6);
+      --text-tertiary: rgba(235, 235, 245, 0.3);
+      --accent-blue: #007AFF;
+      --accent-blue-dark: #0051D5;
+      --accent-orange: #FF9500;
+      --success-green: #34C759;
+      --destructive-red: #FF3B30;
+      
+      /* Spacing */
+      --spacing-tiny: 4px;
+      --spacing-small: 8px;
+      --spacing-medium: 12px;
+      --spacing-regular: 16px;
+      --spacing-large: 20px;
+      --spacing-xl: 24px;
+      --spacing-xxl: 32px;
+      
+      /* Layout */
+      --corner-radius-small: 8px;
+      --corner-radius-medium: 12px;
+      --corner-radius-large: 16px;
+      --corner-radius-xl: 20px;
+      --max-content-width: 800px;
+      --padding-page: 20px;
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+      background: var(--background-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.03;
-      pointer-events: none;
-      z-index: 1000;
+    .container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--padding-page);
     }
 
-    /* Animated background gradient */
-    .bg-gradient {
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(ellipse at 20% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(251, 146, 60, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(234, 88, 12, 0.03) 0%, transparent 70%);
-      animation: gradientShift 20s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(2%, 2%) rotate(1deg); }
-      66% { transform: translate(-1%, 1%) rotate(-1deg); }
+    .container-wide {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--padding-page);
     }
 
     /* Navigation */
@@ -83,54 +71,66 @@
       top: 0;
       left: 0;
       right: 0;
-      padding: 1.25rem 2rem;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
+      padding: var(--spacing-regular) var(--padding-page);
+    }
+
+    .nav-content {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10, 10, 11, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
+      gap: var(--spacing-medium);
       text-decoration: none;
+      color: var(--text-primary);
     }
 
     .logo-icon {
       width: 36px;
       height: 36px;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
-      align-items: center;
+      gap: var(--spacing-small);
     }
 
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 400;
-      transition: color 0.2s ease;
+      font-size: 16px;
+      font-weight: 500;
+      padding: var(--spacing-small) var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      transition: all 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     /* Hero Section */
@@ -138,28 +138,28 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
+      padding: 100px var(--padding-page) 60px;
+      background: linear-gradient(180deg, var(--background-primary) 0%, var(--background-secondary) 100%);
     }
 
     .hero-content {
-      max-width: 1200px;
+      max-width: 1100px;
+      margin: 0 auto;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 60px;
       align-items: center;
     }
 
     .hero-text {
-      animation: fadeInUp 0.8s ease-out;
+      animation: fadeInUp 0.6s ease-out;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -170,21 +170,21 @@
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--gradient-2);
-      border: 1px solid rgba(249, 115, 22, 0.2);
+      gap: var(--spacing-small);
+      padding: var(--spacing-small) var(--spacing-regular);
+      background: rgba(255, 149, 0, 0.15);
       border-radius: 100px;
-      font-size: 0.85rem;
-      color: var(--accent-secondary);
-      margin-bottom: 1.5rem;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-orange);
+      margin-bottom: var(--spacing-xl);
     }
 
     .hero-badge::before {
       content: '';
       width: 8px;
       height: 8px;
-      background: var(--accent);
+      background: var(--accent-orange);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
@@ -195,108 +195,110 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(34px, 5vw, 48px);
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-xl);
     }
 
-    .hero h1 span {
-      background: var(--gradient-1);
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #5AC8FA 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero p {
-      font-size: 1.25rem;
+      font-size: 17px;
       color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      max-width: 500px;
       line-height: 1.7;
+      margin-bottom: var(--spacing-xxl);
+      max-width: 480px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 1rem;
+      gap: var(--spacing-regular);
       flex-wrap: wrap;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: var(--gradient-1);
-      color: white;
-      text-decoration: none;
-      border-radius: 14px;
+      gap: var(--spacing-small);
+      background: var(--accent-blue);
+      color: var(--text-primary);
+      font-size: 17px;
       font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px var(--accent-glow);
+      padding: var(--spacing-medium) var(--spacing-xl);
+      border-radius: var(--corner-radius-medium);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
+      background: var(--accent-blue-dark);
+      transform: scale(1.02);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
     }
 
     .btn-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: var(--bg-card);
-      color: var(--text-primary);
+      gap: var(--spacing-small);
+      background: rgba(0, 122, 255, 0.15);
+      color: var(--accent-blue);
+      font-size: 17px;
+      font-weight: 600;
+      padding: var(--spacing-medium) var(--spacing-xl);
+      border-radius: var(--corner-radius-medium);
       text-decoration: none;
-      border-radius: 14px;
-      font-weight: 500;
-      font-size: 1rem;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
+      transition: all 0.15s ease;
     }
 
     .btn-secondary:hover {
-      background: var(--bg-secondary);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(0, 122, 255, 0.25);
     }
 
     /* Phone Mockup */
     .hero-visual {
       display: flex;
       justify-content: center;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
+      animation: fadeInUp 0.6s ease-out 0.15s both;
     }
 
     .phone-mockup {
       position: relative;
       width: 280px;
       height: 580px;
-      background: linear-gradient(145deg, #2a2a2e 0%, #1a1a1c 100%);
+      background: linear-gradient(145deg, #3a3a3c 0%, #1c1c1e 100%);
       border-radius: 48px;
       padding: 12px;
       box-shadow: 
-        0 50px 100px -20px rgba(0, 0, 0, 0.5),
-        0 30px 60px -30px rgba(0, 0, 0, 0.3),
+        0 50px 100px -20px rgba(0, 0, 0, 0.6),
+        0 30px 60px -30px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .phone-screen {
       width: 100%;
       height: 100%;
-      background: var(--bg-secondary);
+      background: var(--background-secondary);
       border-radius: 38px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--text-tertiary);
+      font-size: 15px;
       text-align: center;
-      padding: 2rem;
+      padding: var(--spacing-xxl);
     }
 
     .phone-screen img {
@@ -313,104 +315,94 @@
       transform: translateX(-50%);
       width: 120px;
       height: 32px;
-      background: #0a0a0b;
+      background: var(--background-primary);
       border-radius: 20px;
       z-index: 10;
     }
 
     /* Features Section */
     .features {
-      padding: 6rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 100px var(--padding-page);
+      background: var(--background-primary);
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
-      animation: fadeInUp 0.6s ease-out;
+      margin-bottom: 60px;
     }
 
     .section-label {
-      font-size: 0.85rem;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-orange);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: var(--spacing-medium);
     }
 
     .section-header h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 34px;
       font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-regular);
     }
 
     .section-header p {
+      font-size: 17px;
       color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing-regular);
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out backwards;
+      background: var(--background-card);
+      border-radius: var(--corner-radius-medium);
+      padding: var(--spacing-xl);
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .feature-card:nth-child(1) { animation-delay: 0.1s; }
-    .feature-card:nth-child(2) { animation-delay: 0.2s; }
-    .feature-card:nth-child(3) { animation-delay: 0.3s; }
-    .feature-card:nth-child(4) { animation-delay: 0.4s; }
-
     .feature-card:hover {
-      border-color: rgba(249, 115, 22, 0.3);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     }
 
     .feature-icon {
-      width: 56px;
-      height: 56px;
-      background: var(--gradient-2);
-      border: 1px solid rgba(249, 115, 22, 0.2);
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      background: rgba(0, 122, 255, 0.15);
+      border-radius: var(--corner-radius-medium);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
+      font-size: 24px;
+      margin-bottom: var(--spacing-regular);
     }
 
     .feature-card h3 {
-      font-size: 1.25rem;
+      font-size: 20px;
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--spacing-small);
     }
 
     .feature-card p {
+      font-size: 15px;
       color: var(--text-secondary);
-      font-size: 0.95rem;
       line-height: 1.6;
     }
 
-    /* Live Activity Highlight */
+    /* Live Activity Section */
     .live-activity-section {
-      padding: 6rem 2rem;
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      padding: 100px var(--padding-page);
+      background: var(--background-secondary);
     }
 
     .live-activity-content {
@@ -418,36 +410,67 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 60px;
       align-items: center;
+    }
+
+    .live-activity-text h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-regular);
+    }
+
+    .live-activity-text p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .live-activity-text ul {
+      list-style: none;
+    }
+
+    .live-activity-text li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-medium);
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-medium);
+    }
+
+    .live-activity-text li .check {
+      color: var(--success-green);
+      font-weight: 600;
     }
 
     .live-activity-demo {
-      background: var(--bg-card);
-      border-radius: 24px;
-      padding: 2rem;
-      border: 1px solid var(--border);
+      background: var(--background-card);
+      border-radius: var(--corner-radius-large);
+      padding: var(--spacing-xl);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .dynamic-island {
-      background: #000;
+      background: var(--background-primary);
       border-radius: 36px;
-      padding: 1rem 1.5rem;
+      padding: var(--spacing-regular) var(--spacing-large);
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: var(--spacing-regular);
+      margin-bottom: var(--spacing-large);
     }
 
     .di-icon {
       width: 40px;
       height: 40px;
-      background: var(--gradient-1);
-      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+      border-radius: var(--corner-radius-medium);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 20px;
     }
 
     .di-content {
@@ -455,61 +478,61 @@
     }
 
     .di-title {
-      font-size: 0.85rem;
+      font-size: 14px;
       font-weight: 600;
-      margin-bottom: 0.25rem;
+      margin-bottom: 2px;
     }
 
     .di-subtitle {
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      font-size: 12px;
+      color: var(--text-tertiary);
     }
 
     .di-timer {
-      font-size: 1.5rem;
+      font-size: 24px;
       font-weight: 700;
       font-variant-numeric: tabular-nums;
-      color: var(--accent);
+      color: var(--accent-blue);
     }
 
     .lock-screen-widget {
       background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
-      border-radius: 20px;
-      padding: 1.25rem;
+      border-radius: var(--corner-radius-large);
+      padding: var(--spacing-large);
     }
 
     .widget-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
+      gap: var(--spacing-medium);
+      margin-bottom: var(--spacing-regular);
     }
 
     .widget-icon {
       width: 32px;
       height: 32px;
-      background: var(--gradient-1);
-      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+      border-radius: var(--corner-radius-small);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 16px;
     }
 
     .widget-title {
-      font-size: 0.9rem;
+      font-size: 15px;
       font-weight: 600;
     }
 
     .widget-progress {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: var(--spacing-regular);
     }
 
     .progress-ring {
       width: 48px;
       height: 48px;
-      position: relative;
     }
 
     .progress-ring svg {
@@ -526,11 +549,11 @@
     }
 
     .progress-ring .progress {
-      stroke: var(--accent);
+      stroke: var(--accent-blue);
       stroke-linecap: round;
       stroke-dasharray: 126;
       stroke-dashoffset: 40;
-      animation: progressAnim 2s ease-out infinite;
+      animation: progressAnim 3s ease-out infinite;
     }
 
     @keyframes progressAnim {
@@ -544,47 +567,51 @@
     }
 
     .widget-step {
-      font-size: 0.8rem;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .widget-step.done {
       color: var(--text-secondary);
-      margin-bottom: 0.25rem;
     }
 
     .widget-step.active {
-      color: var(--accent);
+      color: var(--accent-blue);
       font-weight: 500;
     }
 
     /* CTA Section */
     .cta {
-      padding: 8rem 2rem;
+      padding: 100px var(--padding-page);
       text-align: center;
-    }
-
-    .cta-content {
-      max-width: 600px;
-      margin: 0 auto;
+      background: var(--background-primary);
     }
 
     .cta h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 34px;
       font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-regular);
     }
 
     .cta p {
+      font-size: 17px;
       color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: var(--spacing-xxl);
     }
 
     .app-store-badge {
       display: inline-block;
-      transition: transform 0.3s ease;
+      transition: transform 0.15s ease;
     }
 
     .app-store-badge:hover {
       transform: scale(1.05);
+    }
+
+    .app-store-badge:active {
+      transform: scale(0.97);
     }
 
     .app-store-badge img {
@@ -593,40 +620,33 @@
 
     /* Footer */
     footer {
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--border);
-      background: var(--bg-secondary);
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      text-align: center;
+      padding: 60px var(--padding-page) 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-links {
       display: flex;
-      gap: 2rem;
+      gap: var(--spacing-xl);
+      justify-content: center;
+      margin-bottom: var(--spacing-xl);
     }
 
     .footer-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 15px;
+      font-weight: 500;
       transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
-      color: var(--text-primary);
+      color: var(--accent-blue);
     }
 
     .footer-copy {
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      font-size: 14px;
     }
 
     /* Responsive */
@@ -634,7 +654,7 @@
       .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 40px;
       }
 
       .hero-text {
@@ -656,7 +676,7 @@
 
       .live-activity-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 40px;
       }
 
       .live-activity-demo {
@@ -669,6 +689,10 @@
     }
 
     @media (max-width: 600px) {
+      .hero {
+        padding-top: 80px;
+      }
+
       .phone-mockup {
         width: 240px;
         height: 500px;
@@ -677,6 +701,7 @@
       .hero-buttons {
         flex-direction: column;
         width: 100%;
+        padding: 0 var(--spacing-xl);
       }
 
       .btn-primary, .btn-secondary {
@@ -684,26 +709,30 @@
         justify-content: center;
       }
 
-      .footer-content {
+      .footer-links {
         flex-direction: column;
-        text-align: center;
+        gap: var(--spacing-regular);
+      }
+
+      .section-header h2 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg-gradient"></div>
-  
   <nav>
-    <a href="/" class="logo">
-      <div class="logo-icon">⏱</div>
-      Rotinely
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="mailto:your-email@example.com">Support</a>
+    <div class="nav-content">
+      <a href="/" class="logo">
+        <div class="logo-icon">⏱</div>
+        <span class="logo-text">Rotinely</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@rotinely.app">Support</a>
+      </div>
     </div>
   </nav>
 
@@ -711,7 +740,7 @@
     <div class="hero-content">
       <div class="hero-text">
         <div class="hero-badge">Now with Live Activities</div>
-        <h1>Build better habits, <span>one routine at a time</span></h1>
+        <h1>Build better habits, <span class="highlight">one routine at a time</span></h1>
         <p>Create and execute daily routines with step-by-step guidance and live countdown timers. Stay on track with Dynamic Island and Lock Screen widgets.</p>
         <div class="hero-buttons">
           <a href="#" class="btn-primary">
@@ -727,7 +756,7 @@
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <!-- Replace this div with an img tag when you have a screenshot -->
+            <!-- Replace with your app screenshot -->
             <p>📱<br><br>App screenshot<br>coming soon</p>
           </div>
         </div>
@@ -767,22 +796,14 @@
 
   <section class="live-activity-section">
     <div class="live-activity-content">
-      <div>
+      <div class="live-activity-text">
         <div class="section-label">Live Activities</div>
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Your routine, always visible</h2>
-        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
-          Rotinely uses iOS Live Activities to show your current step right on your Lock Screen and Dynamic Island. No need to open the app—just glance and go.
-        </p>
-        <ul style="margin-top: 1.5rem; color: var(--text-secondary); list-style: none;">
-          <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem;">
-            <span style="color: var(--accent);">✓</span> Real-time countdown timers
-          </li>
-          <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem;">
-            <span style="color: var(--accent);">✓</span> Current step always visible
-          </li>
-          <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem;">
-            <span style="color: var(--accent);">✓</span> Works on Lock Screen & Dynamic Island
-          </li>
+        <h2>Your routine, always visible</h2>
+        <p>Rotinely uses iOS Live Activities to show your current step right on your Lock Screen and Dynamic Island. No need to open the app—just glance and go.</p>
+        <ul>
+          <li><span class="check">✓</span> Real-time countdown timers</li>
+          <li><span class="check">✓</span> Current step always visible</li>
+          <li><span class="check">✓</span> Works on Lock Screen & Dynamic Island</li>
         </ul>
       </div>
       <div class="live-activity-demo">
@@ -807,8 +828,8 @@
               </svg>
             </div>
             <div class="widget-steps">
-              <div class="widget-step">✓ Wake up</div>
-              <div class="widget-step">✓ Stretch</div>
+              <div class="widget-step done">✓ Wake up</div>
+              <div class="widget-step done">✓ Stretch</div>
               <div class="widget-step active">→ Meditation</div>
               <div class="widget-step">Breakfast</div>
             </div>
@@ -819,25 +840,21 @@
   </section>
 
   <section class="cta">
-    <div class="cta-content">
-      <h2>Ready to build better routines?</h2>
-      <p>Download Rotinely today and start creating habits that stick.</p>
-      <a href="#" class="app-store-badge">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-      </a>
-</div>
+    <h2>Ready to build better routines?</h2>
+    <p>Download Rotinely today and start creating habits that stick.</p>
+    <a href="#" class="app-store-badge">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+    </a>
   </section>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <a href="mailto:your-email@example.com">Support</a>
-</div>
-      <div class="footer-copy">
-        © 2025 Rotinely. All rights reserved.
-      </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="mailto:support@rotinely.app">Support</a>
+    </div>
+    <div class="footer-copy">
+      © 2025 Rotinely. All rights reserved.
     </div>
   </footer>
 </body>
