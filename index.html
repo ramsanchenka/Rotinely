@@ -458,17 +458,6 @@
       display: block;
     }
 
-    .phone-notch {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 32px;
-      background: var(--background-primary);
-      border-radius: 20px;
-      z-index: 10;
-    }
 
     /* Carousel Navigation Arrows */
     .carousel-nav {
@@ -489,6 +478,7 @@
       transition: all 0.2s ease;
       z-index: 10;
       color: var(--text-primary);
+      padding: 0;
     }
 
     .carousel-nav:hover {
@@ -526,6 +516,8 @@
       height: 8px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.3);
+      border: none;
+      padding: 0;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -538,6 +530,16 @@
       background: var(--accent-blue);
       width: 24px;
       border-radius: 4px;
+    }
+
+    .carousel-dot:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+
+    .carousel-nav:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
     }
 
     /* Screenshot Caption */
@@ -1801,15 +1803,28 @@
             
             <div class="carousel-track">
               <div class="phone-mockup active" data-index="0" data-title="Your Routines" data-description="Organize all your daily routines in one place">
-                <div class="phone-notch"></div>
                 <div class="phone-screen">
                   <img src="assets/sceenshots/routine-list.png" alt="Rotinely routine list" draggable="false">
                 </div>
               </div>
-              <div class="phone-mockup" data-index="1" data-title="Active Timer" data-description="Stay focused with live countdown for each step">
-                <div class="phone-notch"></div>
+              <div class="phone-mockup" data-index="1" data-title="Ready-Made Templates" data-description="Choose from 16+ templates for morning, focus, and evening">
                 <div class="phone-screen">
-                  <img src="assets/sceenshots/routine-active.png" alt="Active routine with timer" draggable="false">
+                  <img src="assets/sceenshots/templates.png" alt="Routine templates library" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="2" data-title="Active Timer" data-description="Stay focused with live countdown for each step">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/active-routine.png" alt="Active routine with timer" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="3" data-title="Track Progress" data-description="View insights, streaks, and your top routines">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/statistics.png" alt="Progress and statistics" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="4" data-title="Go Premium" data-description="Unlock unlimited routines, templates, and iCloud sync">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/premium.png" alt="Premium subscription" draggable="false">
                 </div>
               </div>
             </div>
@@ -1822,6 +1837,9 @@
           <div class="carousel-dots">
             <button class="carousel-dot active" data-index="0" aria-label="Go to screenshot 1"></button>
             <button class="carousel-dot" data-index="1" aria-label="Go to screenshot 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Go to screenshot 3"></button>
+            <button class="carousel-dot" data-index="3" aria-label="Go to screenshot 4"></button>
+            <button class="carousel-dot" data-index="4" aria-label="Go to screenshot 5"></button>
           </div>
           
           <div class="carousel-progress">
