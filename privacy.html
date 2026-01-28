@@ -251,8 +251,15 @@
       margin-top: 60px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
+    /* Responsive - Large Desktop */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 900px;
+      }
+    }
+
+    /* Tablet (768px - 1023px) */
+    @media (max-width: 1023px) and (min-width: 481px) {
       header {
         padding: 32px 0 40px;
       }
@@ -269,6 +276,10 @@
         font-size: 20px;
       }
 
+      h4 {
+        font-size: 18px;
+      }
+
       .content-section {
         padding: var(--spacing-large);
       }
@@ -281,6 +292,192 @@
       nav a {
         font-size: 14px;
         padding: var(--spacing-small) var(--spacing-medium);
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: var(--spacing-small);
+      }
+    }
+
+    /* Mobile (480px and below) */
+    @media (max-width: 480px) {
+      :root {
+        --padding-page: 16px;
+      }
+
+      header {
+        padding: 24px 0 32px;
+      }
+
+      .app-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+        padding: var(--spacing-regular) 0;
+        margin-bottom: 24px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 6px var(--spacing-medium);
+      }
+
+      main {
+        padding-bottom: 40px;
+      }
+
+      .content-section {
+        padding: var(--spacing-regular);
+        border-radius: var(--corner-radius-small);
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-top: var(--spacing-xl);
+      }
+
+      h4 {
+        font-size: 16px;
+        margin-top: var(--spacing-large);
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .meta {
+        font-size: 13px;
+      }
+
+      ul, ol {
+        margin-left: var(--spacing-large);
+      }
+
+      li {
+        font-size: 15px;
+      }
+
+      .highlight,
+      .warning {
+        padding: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .highlight p,
+      .warning p {
+        font-size: 14px;
+      }
+
+      /* Table responsive - stack on mobile */
+      table {
+        font-size: 13px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      th, td {
+        padding: var(--spacing-small);
+      }
+
+      footer {
+        padding: 40px var(--padding-page) 24px;
+        margin-top: 40px;
+      }
+
+      footer p {
+        font-size: 13px;
+      }
+    }
+
+    /* Small Mobile (360px and below) */
+    @media (max-width: 360px) {
+      :root {
+        --padding-page: 12px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 5px var(--spacing-small);
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      h4 {
+        font-size: 15px;
+      }
+
+      p, li {
+        font-size: 14px;
+      }
+
+      .app-icon {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
+    /* Landscape orientation for mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      header {
+        padding: 20px 0 24px;
+      }
+
+      .app-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      nav {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      nav a {
+        transition: none;
       }
     }
   </style>
