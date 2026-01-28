@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Rotinely</title>
+  <meta name="description" content="Get help with Rotinely. Find answers to common questions or contact our support team.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background-primary: #000000;
+      --background-secondary: #1C1C1E;
+      --background-card: #2C2C2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(235, 235, 245, 0.6);
+      --text-tertiary: rgba(235, 235, 245, 0.3);
+      --accent-blue: #007AFF;
+      --accent-blue-dark: #0051D5;
+      --accent-orange: #FF9500;
+      --success-green: #34C759;
+      --destructive-red: #FF3B30;
+      --spacing-small: 8px;
+      --spacing-medium: 12px;
+      --spacing-regular: 16px;
+      --spacing-large: 20px;
+      --spacing-xl: 24px;
+      --spacing-xxl: 32px;
+      --corner-radius-small: 8px;
+      --corner-radius-medium: 12px;
+      --corner-radius-large: 16px;
+      --max-content-width: 800px;
+      --padding-page: 20px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+      background: var(--background-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--padding-page);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 0 60px;
+      background: linear-gradient(180deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: var(--spacing-small);
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: var(--spacing-regular);
+      justify-content: center;
+      padding: var(--spacing-large) 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: var(--spacing-small) var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a.active {
+      color: var(--accent-orange);
+      background: rgba(255, 149, 0, 0.15);
+    }
+
+    /* Content */
+    main {
+      padding-bottom: 60px;
+    }
+
+    .content-section {
+      background: var(--background-card);
+      border-radius: var(--corner-radius-medium);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-regular);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-regular);
+      color: var(--text-primary);
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: var(--spacing-xxl);
+      margin-bottom: var(--spacing-medium);
+      color: var(--text-primary);
+    }
+
+    p {
+      font-size: 17px;
+      color: rgba(235, 235, 245, 0.8);
+      margin-bottom: var(--spacing-regular);
+      line-height: 1.6;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(90, 200, 250, 0.1) 100%);
+      border: 1px solid rgba(0, 122, 255, 0.2);
+      border-radius: var(--corner-radius-large);
+      padding: var(--spacing-xxl);
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contact-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(0, 122, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-large);
+    }
+
+    .contact-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--accent-blue);
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-small);
+      background: var(--accent-blue);
+      color: var(--text-primary);
+      font-size: 17px;
+      font-weight: 600;
+      padding: var(--spacing-medium) var(--spacing-xl);
+      border-radius: var(--corner-radius-medium);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+    }
+
+    .contact-email:hover {
+      background: var(--accent-blue-dark);
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    .contact-email:active {
+      transform: scale(0.97);
+    }
+
+    .contact-email svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .response-time {
+      display: inline-block;
+      margin-top: var(--spacing-large);
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      list-style: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: var(--spacing-large) 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-item:first-child {
+      padding-top: 0;
+    }
+
+    .faq-question {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-small);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-medium);
+    }
+
+    .faq-question::before {
+      content: 'Q';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      background: rgba(0, 122, 255, 0.15);
+      color: var(--accent-blue);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    .faq-answer {
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding-left: 36px;
+      line-height: 1.6;
+    }
+
+    .faq-answer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .faq-answer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Help Topics */
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--spacing-regular);
+      margin-top: var(--spacing-large);
+    }
+
+    .help-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--corner-radius-medium);
+      padding: var(--spacing-large);
+      transition: all 0.2s ease;
+    }
+
+    .help-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .help-card-icon {
+      font-size: 28px;
+      margin-bottom: var(--spacing-medium);
+    }
+
+    .help-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-small);
+    }
+
+    .help-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* Tips Section */
+    .tip-box {
+      background: rgba(52, 199, 89, 0.1);
+      border-left: 3px solid var(--success-green);
+      padding: var(--spacing-regular);
+      border-radius: var(--corner-radius-small);
+      margin: var(--spacing-large) 0;
+    }
+
+    .tip-box p {
+      margin-bottom: 0;
+      font-size: 15px;
+      color: rgba(200, 255, 200, 0.9);
+    }
+
+    .tip-box strong {
+      color: var(--success-green);
+    }
+
+    /* Links */
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px var(--padding-page) 40px;
+      color: var(--text-tertiary);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+    }
+
+    /* Responsive - Large Desktop */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 900px;
+      }
+    }
+
+    /* Tablet (768px - 1023px) */
+    @media (max-width: 1023px) and (min-width: 481px) {
+      header {
+        padding: 32px 0 40px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .content-section {
+        padding: var(--spacing-large);
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: var(--spacing-small) var(--spacing-medium);
+      }
+
+      .help-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile (480px and below) */
+    @media (max-width: 480px) {
+      :root {
+        --padding-page: 16px;
+      }
+
+      header {
+        padding: 24px 0 32px;
+      }
+
+      .app-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+        padding: var(--spacing-regular) 0;
+        margin-bottom: 24px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 6px var(--spacing-medium);
+      }
+
+      main {
+        padding-bottom: 40px;
+      }
+
+      .content-section {
+        padding: var(--spacing-regular);
+        border-radius: var(--corner-radius-small);
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-top: var(--spacing-xl);
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .contact-card {
+        padding: var(--spacing-xl);
+      }
+
+      .contact-card h3 {
+        font-size: 20px;
+      }
+
+      .contact-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .contact-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .contact-email {
+        width: 100%;
+        justify-content: center;
+        padding: var(--spacing-medium) var(--spacing-large);
+        font-size: 16px;
+      }
+
+      .help-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-question {
+        font-size: 16px;
+      }
+
+      .faq-answer {
+        font-size: 14px;
+        padding-left: 36px;
+      }
+
+      footer {
+        padding: 40px var(--padding-page) 24px;
+        margin-top: 40px;
+      }
+
+      footer p {
+        font-size: 13px;
+      }
+    }
+
+    /* Small Mobile (360px and below) */
+    @media (max-width: 360px) {
+      :root {
+        --padding-page: 12px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 5px var(--spacing-small);
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .app-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .contact-card {
+        padding: var(--spacing-large);
+      }
+
+      .contact-email {
+        font-size: 15px;
+      }
+    }
+
+    /* Landscape orientation for mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      header {
+        padding: 20px 0 24px;
+      }
+
+      .app-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      nav {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      nav a,
+      .contact-email,
+      .help-card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="app-icon"><img src="assets/app-icon.png" alt="Rotinely"></div>
+      <h1>Rotinely</h1>
+      <p class="subtitle">Build Better Habits, One Routine at a Time</p>
+    </div>
+  </header>
+
+  <nav class="container">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="support.html" class="active">Support</a>
+  </nav>
+
+  <main class="container">
+    <!-- Contact Section -->
+    <div class="content-section">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <h3>Get in Touch</h3>
+        <p>Have a question, feedback, or need help? We're here to assist you.</p>
+        <a href="mailto:support@rotinely.app" class="contact-email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          support@rotinely.app
+        </a>
+        <span class="response-time">We typically respond within 24-48 hours</span>
+      </div>
+    </div>
+
+    <!-- Help Topics -->
+    <div class="content-section">
+      <h2>How Can We Help?</h2>
+      <p>Select a topic below or scroll down for frequently asked questions.</p>
+      
+      <div class="help-grid">
+        <div class="help-card">
+          <div class="help-card-icon">🚀</div>
+          <h4>Getting Started</h4>
+          <p>Learn how to create your first routine and make the most of Rotinely.</p>
+        </div>
+        <div class="help-card">
+          <div class="help-card-icon">⏱️</div>
+          <h4>Live Activities</h4>
+          <p>Set up Dynamic Island and Lock Screen widgets for your routines.</p>
+        </div>
+        <div class="help-card">
+          <div class="help-card-icon">💳</div>
+          <h4>Subscriptions</h4>
+          <p>Manage your subscription, billing, and restore purchases.</p>
+        </div>
+        <div class="help-card">
+          <div class="help-card-icon">🔄</div>
+          <h4>iCloud Sync</h4>
+          <p>Sync your routines across all your Apple devices.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <ul class="faq-list">
+        <li class="faq-item">
+          <div class="faq-question">How do I create a new routine?</div>
+          <p class="faq-answer">Tap the "+" button on the main screen to create a new routine. Give it a name, then add steps by tapping "Add Step". For each step, you can set a title, duration, and optional description.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">How do Live Activities work?</div>
+          <p class="faq-answer">When you start a routine, Rotinely automatically shows your progress in the Dynamic Island (on supported iPhones) and on your Lock Screen. You'll see the current step and remaining time without needing to open the app.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">Can I use Rotinely on multiple devices?</div>
+          <p class="faq-answer">Yes! Enable iCloud sync in your device settings to keep your routines synced across all your Apple devices. Go to Settings → [Your Name] → iCloud and make sure Rotinely is enabled.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">How do I restore my subscription?</div>
+          <p class="faq-answer">Open Rotinely, go to Settings, and tap "Restore Purchases". Make sure you're signed in with the same Apple ID you used for the original purchase. If you're still having issues, please contact us.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">How do I cancel my subscription?</div>
+          <p class="faq-answer">Subscriptions are managed through the App Store. Go to Settings → [Your Name] → Subscriptions on your iPhone, find Rotinely, and tap "Cancel Subscription". You'll continue to have access until the end of your billing period.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">Is my data private?</div>
+          <p class="faq-answer">Absolutely. All your routine data is stored locally on your device and in your private iCloud account. We don't have access to your data and never share it with third parties. Read our <a href="privacy.html">Privacy Policy</a> for more details.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">What happens if I delete the app?</div>
+          <p class="faq-answer">If you delete Rotinely, all locally stored data will be removed. However, if you have iCloud sync enabled, your routines will be saved in your iCloud account and restored when you reinstall the app.</p>
+        </li>
+        
+        <li class="faq-item">
+          <div class="faq-question">The app isn't working properly. What should I do?</div>
+          <p class="faq-answer">First, try closing and reopening the app. If the issue persists, try restarting your device. Make sure you're running the latest version of Rotinely and iOS. If you're still experiencing problems, please contact us with details about the issue.</p>
+        </li>
+      </ul>
+
+      <div class="tip-box">
+        <p><strong>Tip:</strong> When contacting support, please include your device model, iOS version, and a detailed description of the issue. Screenshots are also helpful!</p>
+      </div>
+    </div>
+
+    <!-- Additional Resources -->
+    <div class="content-section">
+      <h2>Additional Resources</h2>
+      <p>Looking for more information? Check out these resources:</p>
+      <ul style="margin-left: var(--spacing-xl); margin-top: var(--spacing-regular); color: rgba(235, 235, 245, 0.8);">
+        <li style="margin-bottom: var(--spacing-small);"><a href="privacy.html">Privacy Policy</a> — Learn how we protect your data</li>
+        <li style="margin-bottom: var(--spacing-small);"><a href="terms.html">Terms of Service</a> — Review our terms and conditions</li>
+        <li style="margin-bottom: var(--spacing-small);"><a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store Refunds</a> — Request a refund through Apple</li>
+        <li><a href="https://support.apple.com/en-us/HT202039" target="_blank" rel="noopener">Manage Subscriptions</a> — Apple's guide to managing subscriptions</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Rotinely. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

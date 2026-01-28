@@ -267,16 +267,43 @@
       background: rgba(0, 122, 255, 0.25);
     }
 
-    /* Phone Mockup */
+    /* Screenshot Carousel */
     .hero-visual {
       display: flex;
       justify-content: center;
-      gap: var(--spacing-xl);
+      align-items: center;
       animation: fadeInUp 0.6s ease-out 0.15s both;
+      perspective: 1200px;
+      min-height: 580px;
+    }
+
+    .screenshot-carousel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-track {
+      position: relative;
+      width: 260px;
+      height: 100%;
+      transform-style: preserve-3d;
     }
 
     .phone-mockup {
-      position: relative;
+      position: absolute;
       width: 260px;
       height: auto;
       background: linear-gradient(145deg, #3a3a3c 0%, #1c1c1e 100%);
@@ -286,6 +313,38 @@
         0 50px 100px -20px rgba(0, 0, 0, 0.6),
         0 30px 60px -30px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .phone-mockup.active {
+      transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+      opacity: 1;
+      z-index: 3;
+      pointer-events: auto;
+    }
+
+    .phone-mockup.prev {
+      transform: translate(-130%, -50%) scale(0.8) rotateY(25deg);
+      opacity: 0.5;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .phone-mockup.next {
+      transform: translate(30%, -50%) scale(0.8) rotateY(-25deg);
+      opacity: 0.5;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .phone-mockup:hover:not(.active) {
+      opacity: 0.7;
     }
 
     .phone-screen {
@@ -311,6 +370,136 @@
       background: var(--background-primary);
       border-radius: 20px;
       z-index: 10;
+    }
+
+    /* Carousel Navigation Arrows */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+      color: var(--text-primary);
+    }
+
+    .carousel-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .carousel-nav.prev {
+      left: -10px;
+    }
+
+    .carousel-nav.next {
+      right: -10px;
+    }
+
+    .carousel-nav svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Carousel Dots */
+    .carousel-dots {
+      display: flex;
+      gap: var(--spacing-small);
+      margin-top: var(--spacing-large);
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .carousel-dot.active {
+      background: var(--accent-blue);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Screenshot Caption */
+    .screenshot-caption {
+      text-align: center;
+      margin-top: var(--spacing-large);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+
+    .screenshot-caption.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .screenshot-caption h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-tiny);
+    }
+
+    .screenshot-caption p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Carousel Progress Bar */
+    .carousel-progress {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .carousel-progress-bar {
+      height: 100%;
+      background: var(--accent-blue);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .screenshot-carousel:hover .carousel-progress-bar {
+      animation-play-state: paused;
+    }
+
+    @keyframes progressFill {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    .carousel-progress-bar.animating {
+      animation: progressFill 5s linear forwards;
     }
 
     /* Features Section */
@@ -665,6 +854,18 @@
       .phone-mockup {
         width: 280px;
       }
+
+      .carousel-track {
+        width: 280px;
+      }
+
+      .carousel-container {
+        height: 580px;
+      }
+
+      .hero-visual {
+        min-height: 620px;
+      }
     }
 
     /* Desktop (1024px - 1439px) */
@@ -675,6 +876,18 @@
 
       .phone-mockup {
         width: 240px;
+      }
+
+      .carousel-track {
+        width: 240px;
+      }
+
+      .carousel-container {
+        height: 520px;
+      }
+
+      .hero-visual {
+        min-height: 560px;
       }
 
       .features-grid {
@@ -693,8 +906,37 @@
         width: 200px;
       }
 
+      .carousel-track {
+        width: 200px;
+      }
+
+      .carousel-container {
+        height: 440px;
+      }
+
       .hero-visual {
-        gap: var(--spacing-medium);
+        min-height: 480px;
+      }
+
+      .carousel-nav {
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-nav.prev {
+        left: -5px;
+      }
+
+      .carousel-nav.next {
+        right: -5px;
+      }
+
+      .phone-mockup.prev {
+        transform: translate(-120%, -50%) scale(0.75) rotateY(20deg);
+      }
+
+      .phone-mockup.next {
+        transform: translate(20%, -50%) scale(0.75) rotateY(-20deg);
       }
 
       .hero h1 {
@@ -732,6 +974,7 @@
 
       .hero-visual {
         order: 0;
+        min-height: 500px;
       }
 
       .hero p {
@@ -741,6 +984,26 @@
 
       .hero-buttons {
         justify-content: center;
+      }
+
+      .phone-mockup {
+        width: 220px;
+      }
+
+      .carousel-track {
+        width: 220px;
+      }
+
+      .carousel-container {
+        height: 480px;
+      }
+
+      .phone-mockup.prev {
+        transform: translate(-115%, -50%) scale(0.7) rotateY(15deg);
+      }
+
+      .phone-mockup.next {
+        transform: translate(15%, -50%) scale(0.7) rotateY(-15deg);
       }
 
       .live-activity-content {
@@ -758,10 +1021,6 @@
 
       .features-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .phone-mockup {
-        width: 220px;
       }
     }
 
@@ -785,12 +1044,47 @@
       }
 
       .hero-visual {
-        flex-direction: row;
-        gap: var(--spacing-regular);
+        min-height: 440px;
       }
 
       .phone-mockup {
         width: 180px;
+      }
+
+      .carousel-track {
+        width: 180px;
+      }
+
+      .carousel-container {
+        height: 400px;
+      }
+
+      .phone-mockup.prev {
+        transform: translate(-110%, -50%) scale(0.65) rotateY(12deg);
+        opacity: 0.4;
+      }
+
+      .phone-mockup.next {
+        transform: translate(10%, -50%) scale(0.65) rotateY(-12deg);
+        opacity: 0.4;
+      }
+
+      .carousel-nav {
+        width: 36px;
+        height: 36px;
+      }
+
+      .carousel-nav svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .screenshot-caption h4 {
+        font-size: 14px;
+      }
+
+      .screenshot-caption p {
+        font-size: 12px;
       }
 
       .features {
@@ -872,16 +1166,56 @@
       }
 
       .hero-visual {
-        flex-direction: column;
-        gap: var(--spacing-large);
+        min-height: 420px;
       }
 
       .phone-mockup {
-        width: 220px;
+        width: 200px;
       }
 
-      .phone-mockup:nth-child(2) {
-        display: none;
+      .carousel-track {
+        width: 200px;
+      }
+
+      .carousel-container {
+        height: 380px;
+      }
+
+      /* Hide side phones on small mobile for cleaner look */
+      .phone-mockup.prev,
+      .phone-mockup.next {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .carousel-nav {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .carousel-nav.prev {
+        left: 10px;
+      }
+
+      .carousel-nav.next {
+        right: 10px;
+      }
+
+      .carousel-progress {
+        width: 80px;
+      }
+
+      .screenshot-caption {
+        margin-top: var(--spacing-medium);
+      }
+
+      .screenshot-caption h4 {
+        font-size: 14px;
+      }
+
+      .screenshot-caption p {
+        font-size: 12px;
       }
 
       .hero-buttons {
@@ -1054,7 +1388,19 @@
       }
 
       .phone-mockup {
-        width: 200px;
+        width: 180px;
+      }
+
+      .carousel-track {
+        width: 180px;
+      }
+
+      .carousel-container {
+        height: 360px;
+      }
+
+      .hero-visual {
+        min-height: 400px;
       }
 
       .section-header h2 {
@@ -1089,7 +1435,29 @@
       }
 
       .phone-mockup {
-        width: 180px;
+        width: 160px;
+      }
+
+      .carousel-track {
+        width: 160px;
+      }
+
+      .carousel-container {
+        height: 320px;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .carousel-nav {
+        width: 36px;
+        height: 36px;
+      }
+
+      .carousel-nav svg {
+        width: 14px;
+        height: 14px;
       }
 
       .btn-primary, .btn-secondary {
@@ -1163,7 +1531,7 @@
 
       .hero-visual {
         order: 1;
-        flex-direction: row;
+        min-height: 280px;
       }
 
       .hero p {
@@ -1184,8 +1552,31 @@
         width: 140px;
       }
 
-      .phone-mockup:nth-child(2) {
+      .carousel-track {
+        width: 140px;
+      }
+
+      .carousel-container {
+        height: 260px;
+      }
+
+      .phone-mockup.prev,
+      .phone-mockup.next {
         display: block;
+        opacity: 0.4;
+      }
+
+      .carousel-nav {
+        width: 32px;
+        height: 32px;
+      }
+
+      .screenshot-caption {
+        display: none;
+      }
+
+      .carousel-dots {
+        margin-top: var(--spacing-small);
       }
     }
 
@@ -1225,6 +1616,15 @@
       .app-store-badge:active {
         transform: none;
       }
+
+      .phone-mockup {
+        transition: opacity 0.3s ease;
+      }
+
+      .carousel-progress-bar.animating {
+        animation: none;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -1239,7 +1639,7 @@
         <a href="#features">Features</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="mailto:support@rotinely.app">Support</a>
+        <a href="support.html">Support</a>
       </div>
     </div>
   </nav>
@@ -1261,16 +1661,44 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <img src="assets/sceenshots/routine-list.png" alt="Rotinely routine list">
+        <div class="screenshot-carousel" id="screenshotCarousel">
+          <div class="carousel-container">
+            <button class="carousel-nav prev" aria-label="Previous screenshot">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            
+            <div class="carousel-track">
+              <div class="phone-mockup active" data-index="0" data-title="Your Routines" data-description="Organize all your daily routines in one place">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/routine-list.png" alt="Rotinely routine list" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="1" data-title="Active Timer" data-description="Stay focused with live countdown for each step">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/routine-active.png" alt="Active routine with timer" draggable="false">
+                </div>
+              </div>
+            </div>
+            
+            <button class="carousel-nav next" aria-label="Next screenshot">
+              <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </button>
           </div>
-        </div>
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <img src="assets/sceenshots/routine-active.png" alt="Active routine with timer">
+          
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-index="0" aria-label="Go to screenshot 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Go to screenshot 2"></button>
+          </div>
+          
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar animating"></div>
+          </div>
+          
+          <div class="screenshot-caption visible" id="screenshotCaption">
+            <h4>Your Routines</h4>
+            <p>Organize all your daily routines in one place</p>
           </div>
         </div>
       </div>
@@ -1364,11 +1792,215 @@
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="mailto:support@rotinely.app">Support</a>
+      <a href="support.html">Support</a>
     </div>
     <div class="footer-copy">
       © 2025 Rotinely. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const carousel = document.getElementById('screenshotCarousel');
+      if (!carousel) return;
+
+      const phones = carousel.querySelectorAll('.phone-mockup');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      const prevBtn = carousel.querySelector('.carousel-nav.prev');
+      const nextBtn = carousel.querySelector('.carousel-nav.next');
+      const caption = document.getElementById('screenshotCaption');
+      const progressBar = carousel.querySelector('.carousel-progress-bar');
+      
+      let currentIndex = 0;
+      let autoPlayInterval;
+      let isHovered = false;
+      const totalSlides = phones.length;
+      const autoPlayDelay = 5000;
+
+      function updateCarousel(newIndex, direction = null) {
+        // Remove all position classes
+        phones.forEach(phone => {
+          phone.classList.remove('active', 'prev', 'next');
+        });
+
+        // Calculate prev and next indices
+        const prevIndex = (newIndex - 1 + totalSlides) % totalSlides;
+        const nextIndex = (newIndex + 1) % totalSlides;
+
+        // Apply classes
+        phones[newIndex].classList.add('active');
+        phones[prevIndex].classList.add('prev');
+        phones[nextIndex].classList.add('next');
+
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === newIndex);
+        });
+
+        // Update caption with fade effect
+        if (caption) {
+          caption.classList.remove('visible');
+          setTimeout(() => {
+            const activePhone = phones[newIndex];
+            const title = activePhone.dataset.title || '';
+            const description = activePhone.dataset.description || '';
+            caption.innerHTML = `<h4>${title}</h4><p>${description}</p>`;
+            caption.classList.add('visible');
+          }, 200);
+        }
+
+        // Reset progress bar
+        resetProgressBar();
+
+        currentIndex = newIndex;
+      }
+
+      function nextSlide() {
+        const newIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel(newIndex, 'next');
+      }
+
+      function prevSlide() {
+        const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel(newIndex, 'prev');
+      }
+
+      function goToSlide(index) {
+        if (index !== currentIndex) {
+          updateCarousel(index);
+        }
+      }
+
+      function resetProgressBar() {
+        if (progressBar) {
+          progressBar.classList.remove('animating');
+          // Force reflow
+          void progressBar.offsetWidth;
+          if (!isHovered) {
+            progressBar.classList.add('animating');
+          }
+        }
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(() => {
+          if (!isHovered) {
+            nextSlide();
+          }
+        }, autoPlayDelay);
+        resetProgressBar();
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+        }
+      }
+
+      // Event listeners
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoPlay();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoPlay();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+          startAutoPlay();
+        });
+      });
+
+      // Click on side phones to navigate
+      phones.forEach((phone, index) => {
+        phone.addEventListener('click', () => {
+          if (!phone.classList.contains('active')) {
+            goToSlide(index);
+            startAutoPlay();
+          }
+        });
+      });
+
+      // Pause on hover
+      carousel.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (progressBar) {
+          progressBar.style.animationPlayState = 'paused';
+        }
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (progressBar) {
+          progressBar.style.animationPlayState = 'running';
+        }
+      });
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const minSwipeDistance = 50;
+
+      carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > minSwipeDistance) {
+          if (swipeDistance > 0) {
+            prevSlide();
+          } else {
+            nextSlide();
+          }
+          startAutoPlay();
+        }
+      }
+
+      // Keyboard navigation
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          startAutoPlay();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          startAutoPlay();
+        }
+      });
+
+      // Reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (prefersReducedMotion.matches) {
+        stopAutoPlay();
+        if (progressBar) {
+          progressBar.classList.remove('animating');
+        }
+      } else {
+        // Initialize
+        updateCarousel(0);
+        startAutoPlay();
+      }
+
+      // Handle visibility change
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAutoPlay();
+        } else if (!prefersReducedMotion.matches) {
+          startAutoPlay();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
