@@ -458,17 +458,7 @@
       display: block;
     }
 
-    .phone-notch {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 32px;
-      background: var(--background-primary);
-      border-radius: 20px;
-      z-index: 10;
-    }
+    /* Phone notch removed - using clean screenshots without Dynamic Island overlay */
 
     /* Carousel Navigation Arrows */
     .carousel-nav {
@@ -1800,16 +1790,39 @@
             </button>
             
             <div class="carousel-track">
-              <div class="phone-mockup active" data-index="0" data-title="Your Routines" data-description="Organize all your daily routines in one place">
-                <div class="phone-notch"></div>
+              <div class="phone-mockup active" data-index="0" data-title="Rotinely Pro" data-description="Unlock unlimited routines and all premium features">
                 <div class="phone-screen">
-                  <img src="assets/sceenshots/routine-list.png" alt="Rotinely routine list" draggable="false">
+                  <img src="assets/sceenshots/paywall.png" alt="Rotinely Pro features" draggable="false">
                 </div>
               </div>
-              <div class="phone-mockup" data-index="1" data-title="Active Timer" data-description="Stay focused with live countdown for each step">
-                <div class="phone-notch"></div>
+              <div class="phone-mockup" data-index="1" data-title="Your Routines" data-description="Organize and track all your daily routines">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/routine-list.png" alt="Routine list" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="2" data-title="Track Progress" data-description="See your completion stats at a glance">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/progress.png" alt="Progress tracking" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="3" data-title="Ready-made Templates" data-description="Choose from 16+ templates for morning, focus, and evening">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/templates.png" alt="Routine templates" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="4" data-title="Active Timer" data-description="Stay focused with live countdown for each step">
                 <div class="phone-screen">
                   <img src="assets/sceenshots/routine-active.png" alt="Active routine with timer" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="5" data-title="Routine Management" data-description="Create and customize your perfect routine">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/routine-list-alt.png" alt="Routine management" draggable="false">
+                </div>
+              </div>
+              <div class="phone-mockup" data-index="6" data-title="Weekly Insights" data-description="Discover your productivity patterns and streaks">
+                <div class="phone-screen">
+                  <img src="assets/sceenshots/insights.png" alt="Weekly insights" draggable="false">
                 </div>
               </div>
             </div>
@@ -1822,6 +1835,11 @@
           <div class="carousel-dots">
             <button class="carousel-dot active" data-index="0" aria-label="Go to screenshot 1"></button>
             <button class="carousel-dot" data-index="1" aria-label="Go to screenshot 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Go to screenshot 3"></button>
+            <button class="carousel-dot" data-index="3" aria-label="Go to screenshot 4"></button>
+            <button class="carousel-dot" data-index="4" aria-label="Go to screenshot 5"></button>
+            <button class="carousel-dot" data-index="5" aria-label="Go to screenshot 6"></button>
+            <button class="carousel-dot" data-index="6" aria-label="Go to screenshot 7"></button>
           </div>
           
           <div class="carousel-progress">
