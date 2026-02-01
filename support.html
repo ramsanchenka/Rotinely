@@ -353,6 +353,23 @@
       text-decoration: underline;
     }
 
+    /* Resources List */
+    .resources-list {
+      margin-left: var(--spacing-xl);
+      margin-top: var(--spacing-regular);
+      color: rgba(235, 235, 245, 0.8);
+    }
+
+    .resources-list li {
+      margin-bottom: var(--spacing-small);
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    .resources-list li:last-child {
+      margin-bottom: 0;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -502,6 +519,14 @@
       .faq-answer {
         font-size: 14px;
         padding-left: 36px;
+      }
+
+      .resources-list {
+        margin-left: var(--spacing-large);
+      }
+
+      .resources-list li {
+        font-size: 14px;
       }
 
       footer {
@@ -707,10 +732,10 @@
     <div class="content-section">
       <h2>Additional Resources</h2>
       <p>Looking for more information? Check out these resources:</p>
-      <ul style="margin-left: var(--spacing-xl); margin-top: var(--spacing-regular); color: rgba(235, 235, 245, 0.8);">
-        <li style="margin-bottom: var(--spacing-small);"><a href="privacy.html">Privacy Policy</a> — Learn how we protect your data</li>
-        <li style="margin-bottom: var(--spacing-small);"><a href="terms.html">Terms of Service</a> — Review our terms and conditions</li>
-        <li style="margin-bottom: var(--spacing-small);"><a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store Refunds</a> — Request a refund through Apple</li>
+      <ul class="resources-list">
+        <li><a href="privacy.html">Privacy Policy</a> — Learn how we protect your data</li>
+        <li><a href="terms.html">Terms of Service</a> — Review our terms and conditions</li>
+        <li><a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store Refunds</a> — Request a refund through Apple</li>
         <li><a href="https://support.apple.com/en-us/HT202039" target="_blank" rel="noopener">Manage Subscriptions</a> — Apple's guide to managing subscriptions</li>
       </ul>
     </div>

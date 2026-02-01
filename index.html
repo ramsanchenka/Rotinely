@@ -732,6 +732,8 @@
       border-radius: var(--corner-radius-large);
       padding: var(--spacing-xl);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .dynamic-island {
@@ -742,6 +744,7 @@
       align-items: center;
       gap: var(--spacing-regular);
       margin-bottom: var(--spacing-large);
+      max-width: 100%;
     }
 
     .di-icon {
@@ -749,6 +752,7 @@
       height: 40px;
       border-radius: 10px;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .di-icon img {
@@ -759,17 +763,24 @@
 
     .di-content {
       flex: 1;
+      min-width: 0;
     }
 
     .di-title {
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .di-subtitle {
       font-size: 12px;
       color: var(--text-tertiary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .di-timer {
@@ -777,12 +788,14 @@
       font-weight: 700;
       font-variant-numeric: tabular-nums;
       color: var(--accent-blue);
+      flex-shrink: 0;
     }
 
     .lock-screen-widget {
       background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
       border-radius: var(--corner-radius-large);
       padding: var(--spacing-large);
+      max-width: 100%;
     }
 
     .widget-header {
@@ -797,6 +810,7 @@
       height: 32px;
       border-radius: 8px;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .widget-icon img {
@@ -808,6 +822,9 @@
     .widget-title {
       font-size: 15px;
       font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .widget-progress {
@@ -819,9 +836,26 @@
     .progress-ring {
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
+    }
+
+    .widget-steps {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .widget-step {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .progress-ring svg {
+      width: 100%;
+      height: 100%;
       transform: rotate(-90deg);
     }
 
@@ -846,16 +880,6 @@
       0% { stroke-dashoffset: 126; }
       50% { stroke-dashoffset: 40; }
       100% { stroke-dashoffset: 126; }
-    }
-
-    .widget-steps {
-      flex: 1;
-    }
-
-    .widget-step {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin-bottom: 4px;
     }
 
     .widget-step.done {
@@ -1424,35 +1448,92 @@
         font-size: 20px;
       }
 
+      .live-activity-demo {
+        padding: var(--spacing-regular);
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .dynamic-island {
+        padding: var(--spacing-small) var(--spacing-medium);
+        gap: var(--spacing-small);
+        border-radius: 24px;
+        margin-bottom: var(--spacing-medium);
+      }
+
+      .di-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+      }
+
+      .di-content {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .di-title {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .di-subtitle {
+        font-size: 10px;
+      }
+
+      .di-timer {
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
       .lock-screen-widget {
         padding: var(--spacing-regular);
       }
 
+      .widget-header {
+        gap: var(--spacing-small);
+        margin-bottom: var(--spacing-small);
+      }
+
       .widget-icon {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
       }
 
       .widget-title {
-        font-size: 14px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
-      .widget-step {
-        font-size: 12px;
+      .widget-progress {
+        gap: var(--spacing-small);
       }
 
       .progress-ring {
-        width: 40px;
-        height: 40px;
-      }
-
-      .progress-ring svg {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
       }
 
       .progress-ring circle {
         stroke-width: 3;
+      }
+
+      .widget-steps {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .widget-step {
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .cta {
@@ -1605,6 +1686,56 @@
 
       .live-activity-text p {
         font-size: 14px;
+      }
+
+      .live-activity-demo {
+        padding: var(--spacing-small);
+      }
+
+      .dynamic-island {
+        padding: var(--spacing-small) var(--spacing-small);
+        gap: var(--spacing-tiny);
+        border-radius: 20px;
+      }
+
+      .di-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .di-title {
+        font-size: 11px;
+      }
+
+      .di-subtitle {
+        font-size: 9px;
+      }
+
+      .di-timer {
+        font-size: 16px;
+      }
+
+      .lock-screen-widget {
+        padding: var(--spacing-small);
+      }
+
+      .widget-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .widget-title {
+        font-size: 12px;
+      }
+
+      .progress-ring {
+        width: 32px;
+        height: 32px;
+      }
+
+      .widget-step {
+        font-size: 10px;
+        margin-bottom: 2px;
       }
 
       .cta h2 {
@@ -1913,7 +2044,7 @@
           </div>
           <div class="widget-progress">
             <div class="progress-ring">
-              <svg width="48" height="48">
+              <svg viewBox="0 0 48 48">
                 <circle class="bg" cx="24" cy="24" r="20"/>
                 <circle class="progress" cx="24" cy="24" r="20"/>
               </svg>

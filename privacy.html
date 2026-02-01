@@ -221,10 +221,17 @@
     }
 
     /* Table */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: var(--spacing-regular) 0;
+    }
+
     table {
       width: 100%;
+      min-width: 400px;
       border-collapse: collapse;
-      margin: var(--spacing-regular) 0;
       font-size: 15px;
     }
 
@@ -233,12 +240,17 @@
       padding: var(--spacing-medium);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       color: rgba(235, 235, 245, 0.8);
+      white-space: nowrap;
     }
 
     th {
       color: var(--text-primary);
       font-weight: 600;
       background: rgba(255, 255, 255, 0.03);
+    }
+
+    td:last-child {
+      white-space: normal;
     }
 
     /* Footer */
@@ -390,16 +402,18 @@
         font-size: 14px;
       }
 
-      /* Table responsive - stack on mobile */
+      /* Table responsive on mobile */
       table {
         font-size: 13px;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+        min-width: 340px;
       }
 
       th, td {
         padding: var(--spacing-small);
+      }
+
+      .table-wrapper {
+        margin: var(--spacing-medium) 0;
       }
 
       footer {
@@ -541,28 +555,30 @@
         <p>We do not operate servers that store your personal routine data. All information is stored locally on your device or in your private iCloud account.</p>
       </div>
 
-      <table>
-        <tr>
-          <th>Storage Method</th>
-          <th>What's Stored</th>
-          <th>Who Has Access</th>
-        </tr>
-        <tr>
-          <td><strong>Local Device</strong></td>
-          <td>All routine data, history, statistics</td>
-          <td>Only you</td>
-        </tr>
-        <tr>
-          <td><strong>iCloud (if enabled)</strong></td>
-          <td>Synced routine data</td>
-          <td>Only you (encrypted by Apple)</td>
-        </tr>
-        <tr>
-          <td><strong>App Groups</strong></td>
-          <td>Widget display data</td>
-          <td>Only you (local to device)</td>
-        </tr>
-      </table>
+      <div class="table-wrapper">
+        <table>
+          <tr>
+            <th>Storage Method</th>
+            <th>What's Stored</th>
+            <th>Who Has Access</th>
+          </tr>
+          <tr>
+            <td><strong>Local Device</strong></td>
+            <td>All routine data, history, statistics</td>
+            <td>Only you</td>
+          </tr>
+          <tr>
+            <td><strong>iCloud (if enabled)</strong></td>
+            <td>Synced routine data</td>
+            <td>Only you (encrypted by Apple)</td>
+          </tr>
+          <tr>
+            <td><strong>App Groups</strong></td>
+            <td>Widget display data</td>
+            <td>Only you (local to device)</td>
+          </tr>
+        </table>
+      </div>
 
       <h3>4. Data Retention</h3>
       <p>Your routine data is retained on your device for as long as you use the App:</p>
