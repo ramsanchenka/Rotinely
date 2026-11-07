@@ -1,0 +1,74 @@
+[
+  {
+    "file": "assets/screenshots/pl-web-step-editor.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/pl-web-step-editor.png",
+    "originalSha256": "993b2b416555a3efadcbafb8615bfaaac3a0995dfb6f8babf78ec303f6fb4a35",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/de-web-step-editor.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/de-web-step-editor.png",
+    "originalSha256": "4c8c0f33c2336034bc28a5538325455947a7f0b7451fada9093bac563842141f",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/de-web-goals.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/de-web-goals.png",
+    "originalSha256": "ae9fdb5192c3d90ac747771bebeafbe90f25599d72dba7d73a761c96bcff2ccc",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/en-web-step-editor.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/en-web-step-editor.png",
+    "originalSha256": "272486a55f516f3d72546f82e12bd2d606ddc41d0aca58a631c5851cf382bd11",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/en-web-goals.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/en-web-goals.png",
+    "originalSha256": "1d2b15109d8ef292c2219ac0e863520677a48e6d4f6ec5aa724bfa3a9a63a713",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/pl-web-dark-timer.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/pl-web-dark-timer.png",
+    "originalSha256": "1d45bd098839f768355b7f8b0b3672cf943cebdacbc23f13ddd45a8a9e3fcfe2",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/pl-web-goals.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/pl-web-goals.png",
+    "originalSha256": "a4cc2c643ba0cebc84cc0c68a7fb8acaac0bd292bc0df8ff8b066b2e3279b86d",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/de-web-dark-timer.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/de-web-dark-timer.png",
+    "originalSha256": "bc5d95e56a898f6848612618b702722aea4ac866d6b3e7e39c7c8a3985ee1a51",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  },
+  {
+    "file": "assets/screenshots/en-web-dark-timer.webp",
+    "original": "/Users/ramansanchenka/Documents/flowrite/marketing/2026-11-relaunch/raw/iphone/en-web-dark-timer.png",
+    "originalSha256": "ee5087acb10334fddb96add5a8bdb0a8d45ba4dd42db3970818f8ade9d9b19fe",
+    "format": "WebP",
+    "resizeWidth": 792,
+    "quality": 86
+  }
+]
